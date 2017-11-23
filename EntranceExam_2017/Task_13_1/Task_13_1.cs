@@ -17,7 +17,7 @@ namespace Task_13_1
             string[] months = new string[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
             month -= 1;
-            day -= 1;
+            day = day - 1;
             if (day == 0)
             {
                 day = 31;
