@@ -98,11 +98,7 @@ namespace cw_01
                         break;
                     }
                     while (currentRow < n - 1)
-                    {
-                        if (matr[currentRow, currentColumn] != 0)
-                        {
-                            currentColumn++;
-                        }
+                    {                     
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentRow++;
@@ -116,11 +112,7 @@ namespace cw_01
                         break;
                     }
                     while (currentColumn < n - 1)
-                    {
-                        if (matr[currentRow, currentColumn] != 0)
-                        {
-                            currentRow++;
-                        }
+                    {                      
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentColumn++;
@@ -135,11 +127,7 @@ namespace cw_01
                         break;
                     }
                     while (currentRow > 0)
-                    {
-                        if (matr[currentRow, currentColumn] != 0)
-                        {
-                            currentColumn--;
-                        }
+                    {                       
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentRow--;
@@ -154,11 +142,7 @@ namespace cw_01
                         break;
                     }
                     while (currentColumn > 0)
-                    {
-                        if (matr[currentRow, currentColumn] != 0)
-                        {
-                            currentRow--;
-                        }
+                    {                        
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentColumn--;
