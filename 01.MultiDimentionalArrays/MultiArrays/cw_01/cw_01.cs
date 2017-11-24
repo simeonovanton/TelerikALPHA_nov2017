@@ -51,15 +51,6 @@ namespace cw_01
                     break;
                 case 'c':
 
-                    for (int row = 0; row < matr.GetLength(0); row++)
-                    {
-                        for (int col = 0; col < matr.GetLength(1); col++)
-                        {
-                            matr[row, col] = 1 + col * n + row;
-                        }
-                    }
-
-
                     // nextColumn = 0;
                     // nextRow = n - 1;
                     // counter = 1;
