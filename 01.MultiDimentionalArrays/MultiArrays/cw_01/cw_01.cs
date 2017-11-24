@@ -50,13 +50,58 @@ namespace cw_01
                     }
                     break;
                 case 'c':
+                    // Find half triangle max counter
+                    int maxCounter = 0;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        maxCounter += i;
+                    }
+
                     // First part - Left/Down triangle
+
                     currentRow = n - 1;
                     currentColumn = 0;
-                    while (true)
+                    int lastRow = currentRow;
+                    int lastCol = currentColumn;
+                    counter = 1;
+
+                    while (counter <= maxCounter)
                     {
+                        if (currentRow >= n || currentColumn >= n)
+                        {
+                            currentRow = lastRow - 1;
+                            lastRow = currentRow;
+                            currentColumn = lastCol;
+                        }
                         matr[currentRow, currentColumn] = counter;
+                        counter++;
+                        currentRow++;
+                        currentColumn++;
+                        
                     }
+
+                    // Second part - Up/Right triangle
+
+                    currentRow = 0;
+                    currentColumn = 1;
+                    lastRow = currentRow;
+                    lastCol = currentColumn;
+
+                    while (counter <= n * n)
+                    {
+                        if (currentRow >= n || currentColumn >= n)
+                        {
+                            currentRow = lastRow;
+                            currentColumn = lastCol + 1;
+                            lastCol = currentColumn;
+                        }
+                        matr[currentRow, currentColumn] = counter;
+                        counter++;
+                        currentRow++;
+                        currentColumn++;
+                        
+                    }
+
 
 
                     // nextColumn = 0;
@@ -96,10 +141,7 @@ namespace cw_01
                     {
                         break;
                     }
-                    //if (counter != 1)
-                    //{
-                    //    currentColumn++;
-                    //}
+                   
                     while (currentRow < n - 1)
                     {
                         matr[currentRow, currentColumn] = counter;
@@ -174,9 +216,6 @@ namespace cw_01
                         currentColumn--;
                     }
                     goto goDown;
-
-
-
 
                     break;
                 default:
