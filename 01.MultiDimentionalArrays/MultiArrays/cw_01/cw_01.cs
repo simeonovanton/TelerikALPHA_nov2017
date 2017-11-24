@@ -50,6 +50,14 @@ namespace cw_01
                     }
                     break;
                 case 'c':
+                    // First part - Left/Down triangle
+                    currentRow = n - 1;
+                    currentColumn = 0;
+                    while (true)
+                    {
+                        matr[currentRow, currentColumn] = counter;
+                    }
+
 
                     // nextColumn = 0;
                     // nextRow = n - 1;
@@ -88,10 +96,19 @@ namespace cw_01
                     {
                         break;
                     }
+                    //if (counter != 1)
+                    //{
+                    //    currentColumn++;
+                    //}
                     while (currentRow < n - 1)
-                    {                     
+                    {
                         matr[currentRow, currentColumn] = counter;
                         counter++;
+                        if (matr[currentRow + 1, currentColumn] != 0)
+                        {
+                            currentColumn++;
+                            break;
+                        }
                         currentRow++;
                     }
                     goto goRight;
@@ -102,10 +119,16 @@ namespace cw_01
                     {
                         break;
                     }
+                    //currentColumn--;
                     while (currentColumn < n - 1)
-                    {                      
+                    {
                         matr[currentRow, currentColumn] = counter;
                         counter++;
+                        if (matr[currentRow, currentColumn + 1] != 0)
+                        {
+                            currentRow--;
+                            break;
+                        }
                         currentColumn++;
                     }
                     goto goUp;
@@ -117,10 +140,16 @@ namespace cw_01
                     {
                         break;
                     }
+                    //currentRow++;
                     while (currentRow > 0)
                     {                       
                         matr[currentRow, currentColumn] = counter;
                         counter++;
+                        if (matr[currentRow - 1, currentColumn] != 0)
+                        {
+                            currentColumn--;
+                            break;
+                        }
                         currentRow--;
                     }
                     goto goLeft;
@@ -132,10 +161,16 @@ namespace cw_01
                     {
                         break;
                     }
+                    //currentColumn++;
                     while (currentColumn > 0)
                     {                        
                         matr[currentRow, currentColumn] = counter;
                         counter++;
+                        if (matr[currentRow, currentColumn - 1] != 0)
+                        {
+                            currentRow++;
+                            break;
+                        }
                         currentColumn--;
                     }
                     goto goDown;
@@ -153,6 +188,8 @@ namespace cw_01
             {
                 for (int col = 0; col < matr.GetLength(1); col++)
                 {
+
+                    //Console.Write("{0, 3}", matr[row, col]);
                     if (col != matr.GetLength(1) - 1)
                     {
                         Console.Write(matr[row, col] + " ");
@@ -160,7 +197,7 @@ namespace cw_01
                     else
                     {
                         Console.Write(matr[row, col]);
-
+                   
                     }
 
                 }
