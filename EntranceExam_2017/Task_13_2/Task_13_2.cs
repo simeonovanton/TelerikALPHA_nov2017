@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Task_13_2
 {
-    class Program
+    class Task_13_2
     {
-        static void Main(string[] args)
+        static void Main()
         {
+
         }
     }
 }
