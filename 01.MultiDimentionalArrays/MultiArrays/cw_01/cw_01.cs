@@ -93,12 +93,16 @@ namespace cw_01
                     currentColumn = 0;
                     // Go Down ---------------------
                     goDown:
-                    if (counter == n * n + 1)
+                    if (counter > n * n)
                     {
                         break;
                     }
-                    while (currentRow < n - 1 && matr[currentRow, currentColumn] == 0)
+                    while (currentRow < n - 1)
                     {
+                        if (matr[currentRow, currentColumn] != 0)
+                        {
+                            currentColumn++;
+                        }
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentRow++;
@@ -107,12 +111,16 @@ namespace cw_01
                     // Go Right ---------------------
 
                     goRight:
-                    if (counter == n * n + 1)
+                    if (counter > n * n)
                     {
                         break;
                     }
-                    while (currentColumn < n - 1 && matr[currentRow, currentColumn] == 0)
+                    while (currentColumn < n - 1)
                     {
+                        if (matr[currentRow, currentColumn] != 0)
+                        {
+                            currentRow++;
+                        }
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentColumn++;
@@ -122,12 +130,16 @@ namespace cw_01
                     // Go Up ---------------------
 
                     goUp:
-                    if (counter == n * n + 1)
+                    if (counter > n * n)
                     {
                         break;
                     }
-                    while (currentRow > 0 && matr[currentRow, currentColumn] == 0)
+                    while (currentRow > 0)
                     {
+                        if (matr[currentRow, currentColumn] != 0)
+                        {
+                            currentColumn--;
+                        }
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentRow--;
@@ -137,12 +149,16 @@ namespace cw_01
                     // Go Left ---------------------
 
                     goLeft:
-                    if (counter == n * n + 1)
+                    if (counter > n * n)
                     {
                         break;
                     }
-                    while (currentColumn > 0 && matr[currentRow, currentColumn] == 0)
+                    while (currentColumn > 0)
                     {
+                        if (matr[currentRow, currentColumn] != 0)
+                        {
+                            currentRow--;
+                        }
                         matr[currentRow, currentColumn] = counter;
                         counter++;
                         currentColumn--;
