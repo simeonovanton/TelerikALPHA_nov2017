@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68EB4D0E-B3CD-4379-9910-E37843C2F345}</ProjectGuid>
+    <ProjectGuid>{CB8192BD-B7C2-4C99-92F1-737873302DC5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>cw_03_jokata</RootNamespace>
-    <AssemblyName>cw_03_jokata</AssemblyName>
+    <RootNamespace>somePractice_03</RootNamespace>
+    <AssemblyName>somePractice_03</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cw_03.cs" />
+    <Compile Include="cw_03_best.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
