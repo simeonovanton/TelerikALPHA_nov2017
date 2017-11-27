@@ -10,41 +10,40 @@ class hw_03_CorrectBrackets
     static void Main()
     {
         string input = Console.ReadLine();
+        int balance = 0;
 
-        //First condition is the opening bracket to be first, and the last bracket to be closing
-        int firstOpenBracketPosition = input.IndexOf('(');
-        int firstCloseBracketPosition = input.IndexOf(')');
-        int lastOpenBracketPosition = input.LastIndexOf('(');
-        int lastCloseBracketPosition = input.LastIndexOf(')');
+        int firstOpenBracket = input.IndexOf('(');
+        int firstCloseBracket = input.IndexOf(')');
+        int lastOpenBracket = input.LastIndexOf('(');
+        int lastCloseBracket = input.LastIndexOf(')');
 
-        if (firstOpenBracketPosition < firstCloseBracketPosition && lastOpenBracketPosition < lastCloseBracketPosition)
+        foreach (var item in input)
         {
-            // Second condition is: the number of opening and closing brackets to be equal
-            int countOpenBracket = 0;
-            int countCloseBracket = 0;
-            foreach (var item in input)
+            if (item == '(')
             {
-                if (item == '(')
-                {
-                    countOpenBracket++;
-                }
-                if (item == ')')
-                {
-                    countCloseBracket++;
-                }
+                balance++;
             }
-
-            if (countOpenBracket == countCloseBracket)
+            if (item == ')')
             {
-                Console.WriteLine("Correct");
+                balance--;
+            }
+            if (balance < 0)
+            {
+                Console.WriteLine("Incorrect");
                 return;
             }
+        }
 
+       
+        if (firstOpenBracket < firstCloseBracket && lastOpenBracket < lastCloseBracket && balance == 0)
+        {
+            Console.WriteLine("Correct");
         }
         else
         {
             Console.WriteLine("Incorrect");
         }
+
     }
 }
-//                              ()))((()
+
