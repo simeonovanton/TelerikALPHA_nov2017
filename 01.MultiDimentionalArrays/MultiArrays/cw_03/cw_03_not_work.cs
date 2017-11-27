@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cw_03
 {
-    class cw_03
+    class cw_03_not_work
     {
         static void Main()
         {
@@ -68,6 +68,23 @@ namespace cw_03
                             }
                         }
 
+                        if (currentIndex[1] + 1 < arr.GetLength(1))
+                        {
+                            if (
+                                traversed[currentIndex[0], currentIndex[1] + 1] == false
+                                 &&
+                                arr[currentIndex[0], currentIndex[1]] == arr[currentIndex[0], currentIndex[1] + 1]
+                                )
+                            {
+                                currentLargestArea++;
+                                currentIndex[1] = currentIndex[1] + 1;
+                                counter++;
+                                traversed[currentIndex[0], currentIndex[1]] = true;
+                                lastNodeIndex[0] = currentIndex[0];
+                                lastNodeIndex[1] = currentIndex[1];
+                            }
+                        }
+
                         if (currentIndex[0] - 1 >= 0)
                         {
                             if (
@@ -85,22 +102,7 @@ namespace cw_03
                             }
                         }
 
-                        if (currentIndex[1] + 1 < arr.GetLength(1))
-                        {
-                            if (
-                                traversed[currentIndex[0], currentIndex[1] +1] == false
-                                 &&
-                                arr[currentIndex[0], currentIndex[1]] == arr[currentIndex[0], currentIndex[1] + 1]
-                                )
-                            {
-                                currentLargestArea++;
-                                currentIndex[1] = currentIndex[1] + 1;
-                                counter++;
-                                traversed[currentIndex[0], currentIndex[1]] = true;
-                                lastNodeIndex[0] = currentIndex[0];
-                                lastNodeIndex[1] = currentIndex[1];
-                            }
-                        }
+                        
 
                         if (currentIndex[1] - 1 >= 0)
                         {
