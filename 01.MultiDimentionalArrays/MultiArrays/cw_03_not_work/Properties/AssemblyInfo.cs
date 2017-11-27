@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("cw_03_jokata")]
+[assembly: AssemblyTitle("cw_03")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("cw_03_jokata")]
+[assembly: AssemblyProduct("cw_03")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("68eb4d0e-b3cd-4379-9910-e37843c2f345")]
+[assembly: Guid("9d72d0e7-b4f4-45d5-be5c-18be3246d7fe")]
 
 // Version information for an assembly consists of the following four values:
 //
