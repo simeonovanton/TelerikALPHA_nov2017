@@ -8,12 +8,14 @@ namespace hw_02_GetLargestNumber
 {
     class GetLargestNumber
     {
-        static int GetMax(int a, int b)
+        static long GetMax(long a, long b)
         {
-            return 
+            return a >= b ? a : b;
         }
         static void Main()
         {
+            long[] input = Console.ReadLine().Split().Select(long.Parse).ToArray();
+            Console.WriteLine(GetMax(GetMax(input[0], input[1]), input[2]));
         }
     }
 }
