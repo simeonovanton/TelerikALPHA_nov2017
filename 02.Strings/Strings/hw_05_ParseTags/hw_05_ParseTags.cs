@@ -14,43 +14,57 @@ class hw_05_ParseTags
         string closeTag = "</upcase>";
         StringBuilder output = new StringBuilder();
         bool toUpper = false;
-        int index = 0;
+        int i = 0;
 
-        //while ((index + openTag.Length) < input.Length && (index + closeTag.Length) < input.Length)
-        while (index < input.Length)
+        while (i < input.Length)
         {
-            if ((index + openTag.Length) < input.Length )
+            if (input[i] == '<' && (i + 1 < input.Length && input[i + 1] == 'u'))
             {
-                if (input.Substring(index, openTag.Length) == openTag)
-                {
-                    toUpper = true;
-                    index += openTag.Length;
-                }
+                toUpper = true;
+
+                i = UpdatePosition(input, i);
             }
 
-            if ((index + closeTag.Length) < input.Length)
+            if (input[i] == '<' && (i + 1 < input.Length && input[i + 1] == '/'))
             {
-                if (input.Substring(index, closeTag.Length) == closeTag)
-                {
-                    toUpper = false;
-                    index += closeTag.Length;
-                }
-            }
-           
 
-            if (toUpper)
+                toUpper = false;
+
+                i = UpdatePosition(input, i);
+                continue;
+            }
+
+            if (i < input.Length)
             {
-                output.Append(Char.ToUpper(input[index]));
+                if (toUpper)
+                {
+                    output.Append(input[i].ToString().ToUpper());
+                }
+                else
+                {
+                    output.Append(input[i].ToString());
+                }
+
+                i++;
             }
             else
             {
-                output.Append(input[index]);
+                break;
             }
-
-            index++;
         }
+
         Console.WriteLine(output);
 
+    }
+
+    private static int UpdatePosition(string input, int i)
+    {
+        while (input[i] != '>')
+        {
+            ++i;
+        }
+        i++;
+        return i;
     }
 }
 
