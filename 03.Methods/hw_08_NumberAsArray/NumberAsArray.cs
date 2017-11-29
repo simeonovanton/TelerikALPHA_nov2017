@@ -7,30 +7,36 @@ using System.Threading.Tasks;
 
 class NumberAsArray
 {
+    //Method calculates the sum of the two arrays
     static int[] SumNumbersAsArrays(int[] array_1, int[] array_2)
     {
         int length = array_1.Length >= array_2.Length ? array_1.Length : array_2.Length;
         int[] sum = new int[length];
+        int rest = 0;
 
         for (int i = 0; i < length; i++)
         {
-            int rest = 0;
             if (i >= array_1.Length)
             {
-                sum[i] = array_2[i];
+                sum[i] = array_2[i] + rest;
             }
             else if (i >= array_2.Length)
             {
-                sum[i] = array_1[i];
+                sum[i] = array_1[i] + rest;
             }
             else
             {
                 sum[i] = array_1[i] + array_2[i] + rest;
-                //TO DO !!!
-                if (sum[i] >= 10)
-                {
-                    rest = sum[i] % 10;
-                }
+            }
+
+            if (sum[i] >= 10)
+            {
+                sum[i] = sum[i] % 10;
+                rest = 1;
+            }
+            else
+            {
+                rest = 0;
             }
         }
         return sum;
