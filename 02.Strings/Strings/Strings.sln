@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw_05_ParseTags", "hw_05_Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseTagsRegex", "ParseTagsRegex\ParseTagsRegex.csproj", "{6CF6ED5D-BABB-497E-8422-20DB18C70B7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw_06_StringLength", "hw_06_StringLength\hw_06_StringLength.csproj", "{CFFAFE7C-E6BC-4EB2-95A6-1F0EA5AA8EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw_08_ExtractSentenses", "hw_08_ExtractSentenses\hw_08_ExtractSentenses.csproj", "{ABAD51D4-C8E2-4246-AB93-D1539DD5C462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{6CF6ED5D-BABB-497E-8422-20DB18C70B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CF6ED5D-BABB-497E-8422-20DB18C70B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CF6ED5D-BABB-497E-8422-20DB18C70B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFFAFE7C-E6BC-4EB2-95A6-1F0EA5AA8EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFFAFE7C-E6BC-4EB2-95A6-1F0EA5AA8EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFFAFE7C-E6BC-4EB2-95A6-1F0EA5AA8EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFFAFE7C-E6BC-4EB2-95A6-1F0EA5AA8EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAD51D4-C8E2-4246-AB93-D1539DD5C462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAD51D4-C8E2-4246-AB93-D1539DD5C462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAD51D4-C8E2-4246-AB93-D1539DD5C462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAD51D4-C8E2-4246-AB93-D1539DD5C462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
