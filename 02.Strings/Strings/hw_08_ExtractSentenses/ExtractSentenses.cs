@@ -16,6 +16,7 @@ class ExtractSentenses
         int indexWord = 0;
         int indexDotFirst = 0;
         int indexDotLast = 0;
+        StringBuilder sb = new StringBuilder();
 
         while (true)
         {
@@ -24,27 +25,42 @@ class ExtractSentenses
                 break;
             }
 
-            indexWord = str.IndexOf(word, indexWord + 1);
+            indexWord = str.IndexOf(word, indexWord);
 
             if (indexWord == -1)
             {
                 break;
             }
-
-            indexDotFirst = str.LastIndexOf('.', indexWord);
-            if (indexDotFirst == -1)
+            
+            if (!Char.IsLetter(str[indexWord - 1]) && !Char.IsLetter(str[indexWord + word.Length]))
             {
-                indexDotFirst = 0;
+                indexDotFirst = str.LastIndexOf('.', indexWord);
+
+                if (indexDotFirst == -1)
+                {
+                    indexDotFirst = -1;
+                }
+
+                indexDotLast = str.IndexOf('.', indexWord);
+
+                int sentenceLength = indexDotLast - indexDotFirst;
+
+                if (indexDotFirst == -1)
+                {
+                    sb.Append(str.Substring(indexDotFirst + 1, sentenceLength).Trim());
+                }
+                else
+                {
+                    sb.Append(" ");
+                    sb.Append(str.Substring(indexDotFirst + 1, sentenceLength).Trim());
+
+                }
+                //Console.Write(str.Substring(indexDotFirst + 1, sentenceLength).Trim());
+
             }
-
-            indexDotLast = str.IndexOf('.', indexWord);
-
-            int sentenceLength = indexDotLast - indexDotFirst;
-            if (isLetter(str[indexWord - 1]))
-            {
-                Console.WriteLine(str.Substring(indexDotFirst + 1, sentenceLength));
-
-            }
+ 
+            indexWord++;
         }
+        Console.WriteLine(sb.ToString());
     }
 }
