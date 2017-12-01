@@ -7,64 +7,87 @@ using System.Threading.Tasks;
 
 public class Kitty
 {
+    static char[] str;
+    static int[] path;
     static int food = 0;
     static int souls = 0;
     static int deadlocks = 0;
     static int currentPosition = 0;
-    static string str;
-    static int[] path;
     static int jumps = 0;
-    static int direction = 0;
-    static char[] sb;
+    static int index = 0;
 
-    static void PathGeneral(int[] path)
+    static void CheckDeadlock()
     {
-        if (str[direction] == '@')
+        if (index % 2 == 0)
+        {
+            if (souls > 0)
+            {
+                souls--;
+                str[index] = '@';
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (food > 0)
+            {
+                food--;
+                str[index] = '*';
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+    static void PathGeneral()
+    {
+       
+        if (str[currentPosition] == '@')
         {
             souls++;
-            sb[direction] = '0';
+            str[currentPosition] = '0';
         }
-        else if (str[direction] == '*')
+        else if (str[currentPosition] == '*')
         {
             food++;
-            sb[direction] = '0';
+            str[currentPosition] = '0';
         }
-        else if (sb[direction] == 'x')
+        else if (str[currentPosition] == 'x')
         {
-            if (true)
-            {
-
-            }
+            CheckDeadlock();
         }
-        for (int i = 0; i < path.Length; i++)
+        for (int index = 0; index < path.Length; index++)
         {
-            direction = path[i];
-            if (direction > 0)
+            currentPosition = path[i];
+            if (currentPosition > 0)
             {
-                PathRight(direction);
+                PathRight();
             }
-            else if (direction < 0)
+            else if (currentPosition < 0)
             {
-                PathLeft(direction);
+                PathLeft();
             }
         }
     }
 
-    static void PathLeft(int direction)
+    static void PathLeft()
     {
         food = 1;
     }
 
-    static void PathRight(int direction)
+    static void PathRight()
     {
        
     }
 
     static void Main()
     {
-        str = Console.ReadLine();
+        str = Console.ReadLine().Split().Select(char.Parse).ToArray();
         path = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-        sb = str.Split().Select(char.Parse).ToArray();
       
         if (str[0] == 'x')
         {
@@ -73,7 +96,7 @@ public class Kitty
             return;
         }
 
-        PathGeneral(path);
+        PathGeneral();
 
         Console.WriteLine("Coder souls collected: {0}", souls);
         Console.WriteLine("Food collected: {0}", food);
