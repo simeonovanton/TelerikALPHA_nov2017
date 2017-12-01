@@ -15,7 +15,7 @@ public class Kitty
     static int[] path;
     static int jumps = 0;
     static int direction = 0;
-    static StringBuilder sb = new StringBuilder();
+    static char[] sb;
 
     static void PathGeneral(int[] path)
     {
@@ -64,20 +64,9 @@ public class Kitty
     {
         str = Console.ReadLine();
         path = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-        sb.Append(str);
-       // for (int i = 0; i < sb.Length; i++)
-       // {
-       //     Console.Write(sb[i]);
-       // }
-       // Console.WriteLine();
-       // sb[3] = '!';
-       // for (int i = 0; i < sb.Length; i++)
-       // {
-       //     Console.Write(sb[i]);
-       // }
-       // Console.WriteLine();
-       // return;
-        if (path[0] == 'x')
+        sb = str.Split().Select(char.Parse).ToArray();
+      
+        if (str[0] == 'x')
         {
             Console.WriteLine("You are deadlocked, you greedy kitty!");
             Console.WriteLine("Jumps before deadlock: 0");
