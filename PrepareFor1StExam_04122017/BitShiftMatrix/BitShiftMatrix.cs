@@ -26,20 +26,32 @@ class BitShiftMatrix
 
         //Making the matrix field
         BigInteger[,] matrix = new BigInteger[rows, cols];
-
-        for (int row = rows - 1; row >= 0; row--)
+        BigInteger curr = 1;
+        for (int col = 0; col < cols; col++)
         {
-            for (int col = 0; col < cols; col++)
+            matrix[rows - 1, col] = curr;
+            curr <<= 1;
+
+            for (int row = rows - 2; row >= 0; row--)
             {
-                matrix[row, col] = (BigInteger)Math.Pow(2, col) * (BigInteger)Math.Pow(2, rows - row - 1);
+                matrix[row, col] = matrix[row + 1, col] << 1;
             }
         }
-        // Test print matrix
+        // This is another way to fill the matrix - using Math.Pow()
+        //for (int row = rows - 1; row >= 0; row--)
+        //{
+        //    for (int col = 0; col < cols; col++)
+        //    {
+        //        matrix[row, col] = (BigInteger)Math.Pow(2, col) * (BigInteger)Math.Pow(2, rows - row - 1);
+        //    }
+        //}
+
+        //Test print matrix
         //for (int row = 0; row < rows; row++)
         //{
         //    for (int col = 0; col < cols; col++)
         //    {
-        //        Console.Write("{0, 4}",matrix[row, col]);
+        //        Console.Write("{0, 4}", matrix[row, col]);
         //    }
         //    Console.WriteLine();
         //}
