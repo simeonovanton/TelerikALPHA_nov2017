@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Fill the matrix", "01. Fill the matrix\01. Fill the matrix.csproj", "{1F681956-1C5D-417A-ADD0-47ADCDA19EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Maximal sum", "02. Maximal sum\02. Maximal sum.csproj", "{2D7C02C9-2DED-409A-AFB5-EE9BADB6D001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Sequence in matrix", "03. Sequence in matrix\03. Sequence in matrix.csproj", "{F23B6385-9C01-40C8-BC42-EEE142961551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Largest area in matrix", "06. Largest area in matrix\06. Largest area in matrix.csproj", "{D3E06BA4-9380-4DF9-AF5E-F67BE425B4C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Bishop Path Finder", "07. Bishop Path Finder\07. Bishop Path Finder.csproj", "{09D7F915-2649-49C8-B383-279A6ECBD7EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F681956-1C5D-417A-ADD0-47ADCDA19EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F681956-1C5D-417A-ADD0-47ADCDA19EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F681956-1C5D-417A-ADD0-47ADCDA19EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F681956-1C5D-417A-ADD0-47ADCDA19EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7C02C9-2DED-409A-AFB5-EE9BADB6D001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7C02C9-2DED-409A-AFB5-EE9BADB6D001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7C02C9-2DED-409A-AFB5-EE9BADB6D001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7C02C9-2DED-409A-AFB5-EE9BADB6D001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23B6385-9C01-40C8-BC42-EEE142961551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23B6385-9C01-40C8-BC42-EEE142961551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23B6385-9C01-40C8-BC42-EEE142961551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23B6385-9C01-40C8-BC42-EEE142961551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E06BA4-9380-4DF9-AF5E-F67BE425B4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E06BA4-9380-4DF9-AF5E-F67BE425B4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E06BA4-9380-4DF9-AF5E-F67BE425B4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E06BA4-9380-4DF9-AF5E-F67BE425B4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D7F915-2649-49C8-B383-279A6ECBD7EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D7F915-2649-49C8-B383-279A6ECBD7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D7F915-2649-49C8-B383-279A6ECBD7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D7F915-2649-49C8-B383-279A6ECBD7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {067496DA-4838-45B4-BD95-D3A03210F264}
+	EndGlobalSection
+EndGlobal
