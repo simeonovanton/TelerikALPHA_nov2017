@@ -13,7 +13,7 @@ class BitShiftMatrix
         int rows = int.Parse(Console.ReadLine());
         int cols = int.Parse(Console.ReadLine());
         int moves = int.Parse(Console.ReadLine());
-        decimal[] code = Console.ReadLine().Split(' ').Select(decimal.Parse).ToArray();
+        int[] code = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
         int coef = Math.Max(rows, cols);
 
@@ -21,7 +21,7 @@ class BitShiftMatrix
         int[][] positionToGo = new int[code.Length][];
         for (int i = 0; i < code.Length; i++)
         {
-            positionToGo[i] = new int[] {(int)code[i] / coef, (int)code[i] % coef};
+            positionToGo[i] = new int[] { code[i] / coef, code[i] % coef };
         }
 
         //Making the matrix field
@@ -31,7 +31,7 @@ class BitShiftMatrix
         {
             for (int col = 0; col < cols; col++)
             {
-                matrix[row, col] = (int)Math.Pow(2, col) * (int)Math.Pow(2 , rows - row -1);
+                matrix[row, col] = (BigInteger)Math.Pow(2, col) * (BigInteger)Math.Pow(2, rows - row - 1);
             }
         }
         // Test print matrix
@@ -43,45 +43,34 @@ class BitShiftMatrix
         //    }
         //    Console.WriteLine();
         //}
+        //return;
 
 
-        int[] currentPosition = {rows - 1, 0};
+        int[] currentPosition = { rows - 1, 0 };
         BigInteger sum = matrix[currentPosition[0], currentPosition[1]];
+
         matrix[currentPosition[0], currentPosition[1]] = 0;
 
         // Passing matrix
         for (int i = 0; i < moves; i++)
         {
-            //currentPosition[1] = positionToGo[i][1];
-            for (int j = 0; j <= Math.Abs(positionToGo[i][1] - currentPosition[1]); j++)
+            //columns first
+            for (int nextPosition = Math.Min(currentPosition[1], positionToGo[i][1]);
+                nextPosition <= Math.Max(currentPosition[1], positionToGo[i][1]);
+                nextPosition++)
             {
-                if ((positionToGo[i][1] - currentPosition[1]) >= 0)
-                {
-                    sum += matrix[currentPosition[0], currentPosition[1] + j];
-                    matrix[currentPosition[0], currentPosition[1] + j] = 0;
-                }
-                else
-                {
-                    sum += matrix[currentPosition[0], currentPosition[1] - j];
-                    matrix[currentPosition[0], currentPosition[1] - j] = 0;
-                }
-               
+                sum += matrix[currentPosition[0], nextPosition];
+                matrix[currentPosition[0], nextPosition] = 0;
             }
             currentPosition[1] = positionToGo[i][1];
 
-            for (int j = 0; j <= Math.Abs(positionToGo[i][0] - currentPosition[0]); j++)
+            //rows second
+            for (int nextPosition = Math.Min(currentPosition[0], positionToGo[i][0]);
+                nextPosition <= Math.Max(currentPosition[0], positionToGo[i][0]);
+                nextPosition++)
             {
-                if ((positionToGo[i][0] - currentPosition[0]) >= 0)
-                {
-                    sum += matrix[currentPosition[0] + j, currentPosition[1]];
-                    matrix[currentPosition[0] + j, currentPosition[1]] = 0;
-                }
-                else
-                {
-                    sum += matrix[currentPosition[0] - j, currentPosition[1]];
-                    matrix[currentPosition[0] - j, currentPosition[1]] = 0;
-                }
-                
+                sum += matrix[nextPosition, currentPosition[1]];
+                matrix[nextPosition, currentPosition[1]] = 0;
             }
             currentPosition[0] = positionToGo[i][0];
         }
