@@ -14,20 +14,20 @@ public class Kitty
     static int deadlocks = 0;
     static int currentPosition = 0;
     static int jumps = 0;
-    static int index = 0;
 
-    static void CheckDeadlock()
+    static bool CheckDeadlock()
     {
-        if (index % 2 == 0)
+        if (currentPosition % 2 == 0)
         {
             if (souls > 0)
             {
                 souls--;
-                str[index] = '@';
+                str[currentPosition] = '@';
+                
             }
             else
             {
-                return;
+                return true;
             }
         }
         else
@@ -35,69 +35,60 @@ public class Kitty
             if (food > 0)
             {
                 food--;
-                str[index] = '*';
+                str[currentPosition] = '*';
+                
             }
             else
             {
-                return;
+                return true;
             }
         }
+        return false;
     }
-    static void PathGeneral()
+    static bool PathGeneral()
     {
-       
         if (str[currentPosition] == '@')
         {
             souls++;
             str[currentPosition] = '0';
+            
         }
         else if (str[currentPosition] == '*')
         {
             food++;
             str[currentPosition] = '0';
+            
         }
         else if (str[currentPosition] == 'x')
         {
-            CheckDeadlock();
-        }
-        for (int index = 0; index < path.Length; index++)
-        {
-            currentPosition = path[i];
-            if (currentPosition > 0)
+            deadlocks++;
+            if (CheckDeadlock())
             {
-                PathRight();
+                Console.WriteLine("You are deadlocked, you greedy kitty!");
+                Console.WriteLine("Jumps before deadlock: {0}", jumps);
+                return true;
             }
-            else if (currentPosition < 0)
-            {
-                PathLeft();
-            }
+           
         }
-    }
-
-    static void PathLeft()
-    {
-        food = 1;
-    }
-
-    static void PathRight()
-    {
-       
+        return false;
     }
 
     static void Main()
     {
-        str = Console.ReadLine().Split().Select(char.Parse).ToArray();
+        str = Console.ReadLine().ToCharArray();
         path = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-      
-        if (str[0] == 'x')
+
+        foreach (var move in path)
         {
-            Console.WriteLine("You are deadlocked, you greedy kitty!");
-            Console.WriteLine("Jumps before deadlock: 0");
-            return;
+            jumps++;
+            currentPosition = (str.Length + currentPosition + move % str.Length) % str.Length;
+            if (PathGeneral())
+            {
+                return;
+            }
+
+          
         }
-
-        PathGeneral();
-
         Console.WriteLine("Coder souls collected: {0}", souls);
         Console.WriteLine("Food collected: {0}", food);
         Console.WriteLine("Deadlocks: {0}", deadlocks);

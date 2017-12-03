@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kitty", "Kitty\Kitty.csproj", "{F5EA9C38-0BAB-4448-9D71-DB2059EF53E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitShiftMatrix", "BitShiftMatrix\BitShiftMatrix.csproj", "{B7CFACBE-2E45-4AD0-95BC-3BEE37E9D349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F5EA9C38-0BAB-4448-9D71-DB2059EF53E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5EA9C38-0BAB-4448-9D71-DB2059EF53E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5EA9C38-0BAB-4448-9D71-DB2059EF53E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CFACBE-2E45-4AD0-95BC-3BEE37E9D349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CFACBE-2E45-4AD0-95BC-3BEE37E9D349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CFACBE-2E45-4AD0-95BC-3BEE37E9D349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CFACBE-2E45-4AD0-95BC-3BEE37E9D349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
