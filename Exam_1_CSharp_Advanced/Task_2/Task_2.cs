@@ -14,8 +14,8 @@ class Task_2
 
         long[] array = Console.ReadLine().Split(',').Select(long.Parse).ToArray();
         string input;
-        BigInteger sumForward = 0;
-        BigInteger sumBackwards = 0;
+        long sumForward = 0;
+        long sumBackwards = 0;
         int position = 0;
 
         do
