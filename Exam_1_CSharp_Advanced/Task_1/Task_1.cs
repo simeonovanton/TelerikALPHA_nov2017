@@ -10,19 +10,35 @@ class Task_1
 {
     static void Main()
     {
-        
         string inputStr = Console.ReadLine();
+        //BigInteger input1 = BigInteger.Parse(Console.ReadLine());
+        //List<int> input2 = new List<int>();
+        //if (input1 < 0)
+        //{
+        //    input1 *= -1;
+        //}
+        //
+        //do
+        //{
+        //    input2.Add((int)input1 % 10);
+        //    input1 = input1 / 10;
+        //} while (input1 > 0);
 
-        int[] input = new int[inputStr.Length];
-        for (int i = 0; i < inputStr.Length; i++)
-        {
-            input[i] = Math.Abs((inputStr[i] - '0'));
-        }
+        //int[] input = new int[input2.Count];
+        //for (int i = input2.Count - 1; i >= 0; i--)
+        //{
+        //    input[input2.Count - i - 1] = input2[i];
+        //}
+       //int[] input = new int[inputStr.Length];
+       //for (int i = 0; i < inputStr.Length; i++)
+       //{
+       //    input[i] = Math.Abs((inputStr[i] - '0'));
+       //}
 
         int[] result = new int[input.Length];
         int index = 0;
 
-        for (int i = input.Length - 1; i >= 0 ; i--)
+        for (int i = result.Length - 1; i >= 0 ; i--)
         {
             index = input.Length - i;
 
@@ -41,10 +57,7 @@ class Task_1
             resultResult += item;
         }
         // Console.WriteLine(resultResult);
-        if (resultResult < 0)
-        {
-            resultResult *= -1;
-        }
+      
         int lengthMessage = 0;
         int s = 0;
         int start = 0;
@@ -53,22 +66,25 @@ class Task_1
         {
             Console.WriteLine(resultResult);
             Console.WriteLine("Big Vik wins again!");
+            return;
         }
         else
         {
             lengthMessage = (int)resultResult % 10;
             s = (int)resultResult % 26;
-            start = s + 1;
+            start = s;
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < lengthMessage; i++)
             {
-                int position = (start + i - 1) % 26;
+               // int position = (start + i - 1) % 26;
+                int position = (start + i) % 26;
                 sb.Append(alphabet[position]);
             }
             Console.WriteLine(resultResult);
             Console.WriteLine(sb.ToString().ToUpper());
+            return;
         }
         
     }

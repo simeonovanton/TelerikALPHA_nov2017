@@ -15,6 +15,7 @@ class Task_3
 
         int[][] p1 = new int[rows][];
         int[][] p2 = new int[rows][];
+
         bool[,]b1 = new bool[rows, cols];
         for (int i = 0; i < rows; i++)
         {
@@ -23,6 +24,7 @@ class Task_3
                 b1[i,j] = false;
             }
         }
+
         bool[,] b2 = new bool[rows, cols];
         for (int i = 0; i < rows; i++)
         {
@@ -37,11 +39,32 @@ class Task_3
         {
             p1[i] = Console.ReadLine().Split().Select(int.Parse).ToArray();
         }
-        for (int i = 0; i < rows; i++)
+        for (int i = rows - 1; i >= 0; i--)
         {
             p2[i] = Console.ReadLine().Split().Select(int.Parse).ToArray();
         }
-
+        // Print Matrix to check if correct
+        //for (int i = 0; i < rows; i++)
+        //{
+        //    for (int j = 0; j < cols; j++)
+        //    {
+        //        Console.Write($"{p1[i][j], 4}");
+        //    }
+        //    Console.WriteLine();
+        //}
+        //Console.WriteLine();
+        //Console.WriteLine();
+        //
+        //for (int i = 0; i < rows; i++)
+        //{
+        //    for (int j = 0; j < cols; j++)
+        //    {
+        //        Console.Write($"{p2[i][j],4}");
+        //    }
+        //    Console.WriteLine();
+        //}
+        //return;
+        // exit
         do
         {
             string input1 = Console.ReadLine();
@@ -54,7 +77,7 @@ class Task_3
             string p = input[0];
             int row = int.Parse(input[1]);
             int col = int.Parse(input[2]);
-            if (p == "P1")
+            if (p == "P2")
             {
                 if (p1[row][col] == 0 && b1[row, col] == false)
                 {
@@ -73,7 +96,7 @@ class Task_3
                 }
                
             }
-            else if (p == "P2")
+            else if (p == "P1")
             {
                 if (p2[row][col] == 0 && b2[row, col] == false)
                 {
@@ -93,6 +116,7 @@ class Task_3
             }
             
         } while (true);
+
         int countP1 = 0;
         int countP2 = 0;
         for (int i = 0; i < rows; i++)
