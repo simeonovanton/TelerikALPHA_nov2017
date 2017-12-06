@@ -41,7 +41,19 @@ namespace HarryPoter_4D
                 {
                     if (command[0] == item[0])
                     {
-                        item = command;
+                        switch (command[1])
+                        {
+                            case "A":   item[0] = "0"; // TODO
+                                break;
+                            case "B":
+                                break;
+                            case "C":
+                                break;
+                            case "D":
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
 
