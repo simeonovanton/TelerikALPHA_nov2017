@@ -28,7 +28,7 @@ class Task_2
             string[] inputArr = input.Split(' ').ToArray();
             int times = int.Parse(inputArr[0]);
             string direction = inputArr[1];
-            int size = int.Parse(inputArr[2]);
+            int size = Math.Abs(int.Parse(inputArr[2]));
             
             switch (direction)
             {
@@ -45,6 +45,10 @@ class Task_2
                     for (int i = 0; i < times; i++)
                     {
                         position = (array.Length + startPoint - size) % array.Length;
+                        if (position < 0)
+                        {
+                            position += array.Length;
+                        }
                         sumBackwards += array[position];
                         startPoint = position;
                     }
