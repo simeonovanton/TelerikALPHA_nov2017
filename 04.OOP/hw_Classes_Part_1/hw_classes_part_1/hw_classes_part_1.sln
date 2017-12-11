@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobilePhone", "MobilePhone", "{94A7C9B4-3CB8-40DD-A237-DA4380A9C280}"
+	ProjectSection(SolutionItems) = preProject
+		Battery.cs = Battery.cs
+		Display.cs = Display.cs
+		GSM.cs = GSM.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79EEA41C-FC72-4F2C-BB95-93B764358422}
+	EndGlobalSection
+EndGlobal
