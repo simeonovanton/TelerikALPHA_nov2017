@@ -39,4 +39,8 @@ public class Display
         }
     }
 
+    public override string ToString()
+    {
+        return $"Display size: {Size} {Environment.NewLine} Display number of colors: {NumOfColors}";
+    }
 }

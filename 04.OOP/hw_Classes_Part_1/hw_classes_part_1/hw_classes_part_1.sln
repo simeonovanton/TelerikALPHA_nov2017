@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobilePhone", "MobilePhone", "{94A7C9B4-3CB8-40DD-A237-DA4380A9C280}"
 	ProjectSection(SolutionItems) = preProject
 		Battery.cs = Battery.cs
+		BatteryType.cs = BatteryType.cs
 		Display.cs = Display.cs
 		GSM.cs = GSM.cs
 	EndProjectSection

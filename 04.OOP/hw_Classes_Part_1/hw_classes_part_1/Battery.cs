@@ -2,20 +2,21 @@
 
 public class Battery
 {
-    private string model;
-    private int hoursIdle;
-    private int hoursTalk;
 
-	public Battery(string model, int hoursIdle, int hoursTalk)
+	public Battery(BatteryType model, int hoursIdle, int hoursTalk)
 	{
         this.Model = model;
         this.HoursIdle = hoursIdle;
         this.HoursTalk = hoursTalk;
 	}
 
-    public string Model { get; set; }
+    public BatteryType Model { get; set; }
     public int HoursIdle { get; set; }
     public int HoursTalk { get; set; }
 
-
+    public override string ToString()
+    {
+        return $"Battery model: {Model} {Environment.NewLine} HoursIdle: {HoursIdle}" +
+                 $"{Environment.NewLine} HoursTalk:{HoursTalk} ";
+    }
 }
