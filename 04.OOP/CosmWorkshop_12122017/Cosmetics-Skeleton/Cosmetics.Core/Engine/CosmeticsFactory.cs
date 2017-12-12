@@ -24,6 +24,11 @@ namespace Cosmetics.Core.Engine
             return new Toothpaste(name, brand, price, gender, string.Join(", ",ingredients).Trim());
         }
 
+        public Cream CreateCream(string name, string brand, decimal price, GenderType gender, ScentType scent)
+        {
+            return new Cream(name, brand, price, gender, scent);
+        }
+
         public ShoppingCart CreateShoppingCart()
         {
             return new ShoppingCart();

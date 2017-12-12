@@ -23,6 +23,8 @@ namespace Cosmetics.Core.Engine
         private const string ShampooCreated = "Shampoo with name {0} was created!";
         private const string ToothpasteAlreadyExist = "Toothpaste with name {0} already exists!";
         private const string ToothpasteCreated = "Toothpaste with name {0} was created!";
+        private const string CreamAlreadyExist = "Cream with name {0} already exists!";
+        private const string CreamCreated = "Cream with name {0} was created!";
         private const string ProductAddedToShoppingCart = "Product {0} was added to the shopping cart!";
         private const string ProductDoesNotExistInShoppingCart = "Shopping cart does not contain product with name {0}!";
         private const string ProductRemovedFromShoppingCart = "Product {0} was removed from the shopping cart!";
@@ -135,6 +137,16 @@ namespace Cosmetics.Core.Engine
                     var toothpasteGender = this.GetGender(command.Parameters[3]);
                     var toothpasteIngredients = command.Parameters[4].Trim().Split(',').ToList();
                     return this.CreateToothpaste(toothpasteName, toothpasteBrand, toothpastePrice, toothpasteGender, toothpasteIngredients);
+
+                case "CreateCream":
+                    var creamName = command.Parameters[0];
+                    var creamBrand = command.Parameters[1];
+                    var creamPrice = decimal.Parse(command.Parameters[2]);
+                    var creamGender = this.GetGender(command.Parameters[3]);
+                    var creamScent = this.GetScent(command.Parameters[4]);
+                    
+                    return this.CreateCream(creamName, creamBrand, creamPrice, creamGender, creamScent);
+
 
                 case "AddToShoppingCart":
                     var productToAddToCart = command.Parameters[0];
@@ -255,6 +267,19 @@ namespace Cosmetics.Core.Engine
             return string.Format(ToothpasteCreated, toothpasteName);
         }
 
+        private string CreateCream(string creamName, string creamBrand, decimal creamPrice, GenderType creamGender, ScentType creamScent)
+        {
+            if (this.products.ContainsKey(creamName))
+            {
+                return string.Format(CreamAlreadyExist, creamName);
+            }
+
+            var cream = this.factory.CreateCream(creamName, creamBrand, creamPrice, creamGender, creamScent);
+            this.products.Add(creamName, cream);
+
+            return string.Format(ToothpasteCreated, creamName);
+        }
+
         private string AddToShoppingCart(string productName)
         {
             if (!this.products.ContainsKey(productName))
@@ -299,6 +324,21 @@ namespace Cosmetics.Core.Engine
                     return GenderType.Unisex;
                 default:
                     throw new InvalidOperationException(InvalidGenderType);
+            }
+        }
+
+        private ScentType GetScent(string scentAsString)
+        {
+            switch (scentAsString.ToLower())
+            {
+                case "lavender":
+                    return ScentType.lavender;
+                case "vanilla":
+                    return ScentType.vanilla;
+                case "rose":
+                    return ScentType.rose;
+                default:
+                    throw new InvalidOperationException("InvalidScentType");
             }
         }
 

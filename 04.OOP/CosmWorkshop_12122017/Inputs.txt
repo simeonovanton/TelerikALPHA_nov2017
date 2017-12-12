@@ -1,0 +1,20 @@
+CreateShampoo MyMan Nivea 10.99 Men 1000 EveryDay
+CreateCream MyManCream MyNiveaCream 170.99 Men lavender
+CreateToothpaste White Colgate 10.99 Men calcium,fluorid
+CreateCategory Shampoos
+CreateCategory Toothpastes
+CreateCategory Creams
+AddToCategory Shampoos MyMan
+AddToCategory Toothpastes White
+AddToCategory Creams MyManCream
+AddToShoppingCart MyMan
+AddToShoppingCart White
+AddToShoppingCart MyManCream
+ShowCategory Shampoos
+ShowCategory Toothpastes
+ShowCategory Creams
+TotalPrice
+RemoveFromCategory Shampoos MyMan
+ShowCategory Shampoos
+RemoveFromShoppingCart MyMan
+TotalPrice
