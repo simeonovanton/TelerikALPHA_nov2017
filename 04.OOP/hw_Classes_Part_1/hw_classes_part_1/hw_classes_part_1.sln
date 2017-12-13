@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobilePhone", "MobilePhone", "{94A7C9B4-3CB8-40DD-A237-DA4380A9C280}"
-	ProjectSection(SolutionItems) = preProject
-		Battery.cs = Battery.cs
-		BatteryType.cs = BatteryType.cs
-		Display.cs = Display.cs
-		GSM.cs = GSM.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSMDemo", "GSMDemo\GSMDemo.csproj", "{FDD508E8-84AE-4C7B-BDB9-CA920CBA7823}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDD508E8-84AE-4C7B-BDB9-CA920CBA7823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD508E8-84AE-4C7B-BDB9-CA920CBA7823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD508E8-84AE-4C7B-BDB9-CA920CBA7823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD508E8-84AE-4C7B-BDB9-CA920CBA7823}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -30,8 +30,24 @@ public class GSM
         this.Manufacturer = manufacturer;
     }
 
-    public static GSM IPhone4S => new GSM("4S", "HUawei", 10m, "Iaze", new Battery(BatteryType.LiIon, 100, 5), new Display(5, 200));
+    public static GSM IPhone4S => new GSM("4S", "HUawei", 10m, "Yaze'ka!", new Battery(BatteryType.LiIon, 100, 5), new Display(5, 200));
 
+    public List<Call> CallHistory { get; set; }
+
+    public void CallAdd(Call call)
+    {
+        CallHistory.Add(call);
+    }
+
+    public void CallRemove(Call call)
+    {
+        CallHistory.Remove(call);
+    }
+
+    public void CallClear(Call call)
+    {
+        CallHistory.Clear(call);
+    }
 
     public string Model { get; set; }
     public string Manufacturer { get; set; }
@@ -42,6 +58,6 @@ public class GSM
 
     public override string ToString()
     {
-        return base.ToString();
+        return $"{this.Model}, {this.Manufacturer}, {this.Price}, {this.Owner}, {this.Battery.ToString()}, {this.Display.ToString()}";
     }
 }
