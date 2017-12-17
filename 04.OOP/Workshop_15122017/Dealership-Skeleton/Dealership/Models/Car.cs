@@ -27,7 +27,11 @@ namespace Dealership.Models
             get => this.seats;
             private set
             {
-                Guard.WhenArgument(value, "Value").IsLessThan(0).IsGreaterThan(10).Throw();
+                if (seats < 1 || seats > 10)
+                {
+                    throw new ArgumentException("Seats must be between 1 and 10!");
+                }
+                //Guard.WhenArgument(value, "Value").IsLessThan(1).IsGreaterThan(10).Throw();
                 this.seats = value;
             }
         }

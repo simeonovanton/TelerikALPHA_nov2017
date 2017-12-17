@@ -26,6 +26,7 @@ namespace Dealership.Models
             this.Model = model;
             this.Wheels = wheels;
             this.Price = price;
+            this.Comments = new List<IComment>();
         }
 
         public VehicleType Type { get; }
@@ -35,7 +36,7 @@ namespace Dealership.Models
             get { return this.make; }
             protected set
             {
-                if (value.Length < 3 || value.Length > 15)
+                if (value.Length < 1 || value.Length > 15)
                 {
                     throw new ArgumentException("Make must be between 2 and 15 characters long!");
                 }
@@ -48,7 +49,7 @@ namespace Dealership.Models
             get { return this.model; }
             protected set
             {
-                if (value.Length < 3 || value.Length > 15)
+                if (value.Length < 1 || value.Length > 15)
                 {
                     throw new ArgumentException("Model must be between 2 and 15 characters long!");
                 }
@@ -67,7 +68,10 @@ namespace Dealership.Models
             get { return this.price; }
             protected set
             {
-                Guard.WhenArgument(value,"Price").IsGreaterThan(1000000).IsLessThan(0).Throw();
+                if (value < 0 || value > 1000000)
+                {
+                    throw new ArgumentException("Price must be between 0.0 and 1000000.0!");
+                }
                 this.price = value;
             }
         }

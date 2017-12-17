@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Bytes2you.Validation;
 using Dealership.Common.Enums;
@@ -18,22 +19,89 @@ namespace Dealership.Models
         private IList<IVehicle> vehicles;
         private int counter = 0;
 
-        public User(string userName, string firstName, string lastName, string passWord)
+        public string Username
+        {
+            get { return this.userName; }
+            set
+            {
+                if (value.Length < 2 || value.Length > 20)
+                {
+                    throw new ArgumentException("Username must be between 2 and 20 characters long!");
+                }
+
+                if (!Regex.IsMatch(value, "^[A-Za-z0-9]+$"))
+                {
+                    throw new ArgumentException("Username contains invalid symbols!");
+                }
+
+                this.userName = value;
+            }
+        }
+        public string FirstName
+        {
+            get { return this.firstName; }
+            set
+            {
+                if (value.Length < 2 || value.Length > 20)
+                {
+                    throw new ArgumentException("Firstname must be between 2 and 20 characters long!");
+                }
+
+                if (!Regex.IsMatch(value, "^[A-Za-z0-9]+$"))
+                {
+                    throw new ArgumentException("Firstname contains invalid symbols!");
+                }
+
+                this.firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get { return this.lastName; }
+            set
+            {
+                if (value.Length < 2 || value.Length > 20)
+                {
+                    throw new ArgumentException("Lastname must be between 2 and 20 characters long!");
+                }
+
+                if (!Regex.IsMatch(value, "^[A-Za-z0-9]+$"))
+                {
+                    throw new ArgumentException("Lastname contains invalid symbols!");
+                }
+
+                this.lastName = value;
+            }
+        }
+        
+        public string Password
+        {
+            get { return this.passWord; }
+            set
+            {
+                if (value.Length < 5 || value.Length > 30)
+                {
+                    throw new ArgumentException("Password must be between 5 and 30 characters long!");
+                }
+
+                if (!Regex.IsMatch(value, "^[A-Za-z0-9@*_-]+$"))
+                {
+                    throw new ArgumentException("Lastname contains invalid symbols!");
+                }
+                this.passWord = value;
+            }
+        }
+
+
+        public User(string userName, string firstName, string lastName, string passWord, string role)
         {
             this.Username = userName;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Password = passWord;
-        }
-        public string Username { get; }
-        public string FirstName { get; }
-        public string LastName { get; }
-        public string Password { get; }
-
-        public User(string userName, string firstName, string lastName, string passWord, string role)
-            :this(userName, firstName, lastName, passWord)
-        {
             this.Role = (Role) Enum.Parse(typeof(Role), role);
+            this.vehicles = new List<IVehicle>();
         }
         public Role Role { get; }
 

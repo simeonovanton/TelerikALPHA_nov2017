@@ -24,7 +24,11 @@ namespace Dealership.Models
             get { return this.category; }
             protected set
             {
-                Guard.WhenArgument(value.Length, "Category").IsGreaterThan(10).IsLessThan(3).Throw();
+                if (value.Length < 3 || value.Length > 10)
+                {
+                    throw new ArgumentException("Category must be between 3 and 10 characters long!");
+                }
+                //Guard.WhenArgument(value.Length, "Category").IsGreaterThan(10).IsLessThan(3).Throw();
                 this.category = value;
             }
         }

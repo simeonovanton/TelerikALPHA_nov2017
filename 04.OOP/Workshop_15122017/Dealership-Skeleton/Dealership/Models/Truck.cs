@@ -25,7 +25,11 @@ namespace Dealership.Models
             get { return this.weightCapacity; }
             protected set
             {
-                Guard.WhenArgument(value, "WeigtCapacity").IsLessThan(1).IsGreaterThan(100).Throw();
+                if (weightCapacity < 1 || weightCapacity > 100)
+                {
+                    throw new ArgumentException("Weight capacity must be between 1 and 100!");
+                }
+                //Guard.WhenArgument(value, "WeigtCapacity").IsLessThan(1).IsGreaterThan(100).Throw();
                 this.weightCapacity = value;
             }
         }
