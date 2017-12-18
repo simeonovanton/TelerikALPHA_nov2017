@@ -1,8 +1,7 @@
-﻿namespace Dealership.Engine
+﻿namespace Cosmetics.Core.Contracts
 {
     public interface IEngine
     {
         void Start();
     }
 }
-

@@ -156,7 +156,23 @@ namespace Dealership.Models
 
         public string PrintVehicles()
         {
-            throw new NotImplementedException();
+            var sb = new StringBuilder();
+            sb.AppendLine($"--USER {this.Username}--");
+            if (Vehicles.Count == 0)
+            {
+                sb.AppendLine($"--NO VEHICLES--");
+            }
+            else
+            {
+                int counter = 0;
+                foreach (var item in Vehicles)
+                {
+                    counter++;
+                    sb.AppendLine($"{counter}. {item.Type}");
+                    sb.AppendLine(item.ToString());
+                }
+            }
+            return sb.ToString();
         }
     }
 }

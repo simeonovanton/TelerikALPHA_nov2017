@@ -33,5 +33,13 @@ namespace Dealership.Models
                 this.weightCapacity = value;
             }
         }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"  Weight Capacity: {this.WeightCapacity}");
+            return sb.ToString();
+        }
     }
 }

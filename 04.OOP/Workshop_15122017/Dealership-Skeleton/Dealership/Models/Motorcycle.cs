@@ -32,6 +32,14 @@ namespace Dealership.Models
                 this.category = value;
             }
         }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"  Category: {this.Category}");
+            return sb.ToString();
+        }
     }
 
 }

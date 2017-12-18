@@ -35,6 +35,14 @@ namespace Dealership.Models
                 this.seats = value;
             }
         }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"  Seats: {this.Seats}");
+            return sb.ToString();
+        }
     }
 
   

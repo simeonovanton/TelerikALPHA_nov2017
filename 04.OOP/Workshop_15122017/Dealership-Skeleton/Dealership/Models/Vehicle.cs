@@ -36,7 +36,7 @@ namespace Dealership.Models
             get { return this.make; }
             protected set
             {
-                if (value.Length < 1 || value.Length > 15)
+                if (value.Length < 2 || value.Length > 15)
                 {
                     throw new ArgumentException("Make must be between 2 and 15 characters long!");
                 }
@@ -81,5 +81,17 @@ namespace Dealership.Models
             get { return this.comments; }
             set { this.comments = value; }
         }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"  Make: {this.Make}");
+            sb.AppendLine($"  Model: {this.Model}");
+            sb.AppendLine($"  Wheels: {this.Wheels}");
+            sb.AppendLine($"  Price: {this.Price}");
+            return sb.ToString();
+        }
     }
+
+    
 }
