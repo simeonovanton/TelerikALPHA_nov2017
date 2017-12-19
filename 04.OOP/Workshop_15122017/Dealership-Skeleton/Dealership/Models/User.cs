@@ -74,7 +74,7 @@ namespace Dealership.Models
                 this.lastName = value;
             }
         }
-        
+
         public string Password
         {
             get { return this.passWord; }
@@ -100,7 +100,7 @@ namespace Dealership.Models
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Password = passWord;
-            this.Role = (Role) Enum.Parse(typeof(Role), role);
+            this.Role = (Role)Enum.Parse(typeof(Role), role);
             this.vehicles = new List<IVehicle>();
         }
         public Role Role { get; }
@@ -132,7 +132,7 @@ namespace Dealership.Models
             }
             else if (this.Role == Role.Normal)
             {
-            this.vehicles.Add(vehicle);
+                this.vehicles.Add(vehicle);
             }
 
         }
@@ -154,25 +154,50 @@ namespace Dealership.Models
             vehicleToRemoveComment.Comments.Remove(commentToRemove);
         }
 
+        //public string PrintVehicles()
+        //{
+        //    var sb = new StringBuilder();
+        //    sb.AppendLine($"--USER {this.Username}--");
+        //    if (Vehicles.Count == 0)
+        //    {
+        //        sb.AppendLine($"--NO VEHICLES--");
+        //    }
+        //    else
+        //    {
+        //        int counter = 0;
+        //        foreach (var item in Vehicles)
+        //        {
+        //            counter++;
+        //            sb.AppendLine($"{counter}. {item.Type}");
+        //            sb.AppendLine(item.ToString());
+        //        }
+        //    }
+        //    return sb.ToString();
+        //}
+
         public string PrintVehicles()
         {
             var sb = new StringBuilder();
+
+            var counter = 1;
+            //builder.AppendLine(string.Format(UserHeader, this.Username));
             sb.AppendLine($"--USER {this.Username}--");
-            if (Vehicles.Count == 0)
+
+            if (this.Vehicles.Count <= 0)
             {
                 sb.AppendLine($"--NO VEHICLES--");
+                // sb.AppendLine(NoVehiclesHeader);
             }
             else
             {
-                int counter = 0;
-                foreach (var item in Vehicles)
+                foreach (var vehicle in this.Vehicles)
                 {
+                    sb.AppendLine(string.Format("{0}. {1}", counter, vehicle.ToString()));
                     counter++;
-                    sb.AppendLine($"{counter}. {item.Type}");
-                    sb.AppendLine(item.ToString());
                 }
             }
-            return sb.ToString();
+
+            return sb.ToString().Trim();
         }
     }
 }

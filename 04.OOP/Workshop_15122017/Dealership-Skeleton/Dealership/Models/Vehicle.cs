@@ -9,7 +9,7 @@ using Dealership.Contracts;
 
 namespace Dealership.Models
 {
-    public class Vehicle : IVehicle, ICommentable, IPriceable
+    public abstract class Vehicle : IVehicle, ICommentable, IPriceable
     {
         private string make;
         private string model;
@@ -17,6 +17,8 @@ namespace Dealership.Models
         private decimal price;
         private VehicleType type;
         private IList<IComment> comments;
+        private const string NoCommentsHeader = " --NO COMMENTS--";
+        private const string CommentsHeader = "--COMMENTS--";
 
         // Each of the vehicles has make, model, wheels count and price.
         public Vehicle(VehicleType type, string make, string model, int wheels, decimal price)
@@ -89,7 +91,34 @@ namespace Dealership.Models
             sb.AppendLine($"  Model: {this.Model}");
             sb.AppendLine($"  Wheels: {this.Wheels}");
             sb.AppendLine($"  Price: {this.Price}");
+            sb.AppendLine(this.PrintAdditionalInfo());
+            sb.AppendLine(this.PrintComments());
             return sb.ToString();
+        }
+
+        protected abstract string PrintAdditionalInfo();
+
+        private string PrintComments()
+        {
+            var builder = new StringBuilder();
+
+            if (this.Comments.Count <= 0)
+            {
+                builder.AppendLine(string.Format("{0}", NoCommentsHeader));
+            }
+            else
+            {
+                builder.AppendLine(string.Format("{0}", CommentsHeader));
+
+                foreach (var comment in this.Comments)
+                {
+                    builder.AppendLine(comment.ToString());
+                }
+
+                builder.AppendLine(string.Format("{0}", CommentsHeader));
+            }
+
+            return builder.ToString().TrimEnd();
         }
     }
 

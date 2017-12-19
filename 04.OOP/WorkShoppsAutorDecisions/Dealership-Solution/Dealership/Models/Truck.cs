@@ -30,7 +30,7 @@ namespace Dealership.Models
 
         protected override string PrintAdditionalInfo()
         {
-            // Е mnoo sum gaden! Za edna glavna bukva! ЦЦЦЦЦЦЦ :D
+            
             return string.Format("  Weight Capacity: {0}t", this.WeightCapacity);
         }
 

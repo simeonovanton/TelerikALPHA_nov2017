@@ -37,8 +37,13 @@ namespace Dealership.Models
         {
             var sb = new StringBuilder();
             sb.AppendLine(base.ToString());
-            sb.AppendLine($"  Category: {this.Category}");
+            //sb.AppendLine($"  Category: {this.Category}");
             return sb.ToString();
+        }
+
+        protected override string PrintAdditionalInfo()
+        {
+            return string.Format("  Category: {0}t", this.Category);
         }
     }
 

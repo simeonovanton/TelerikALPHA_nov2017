@@ -40,8 +40,13 @@ namespace Dealership.Models
         {
             var sb = new StringBuilder();
             sb.AppendLine(base.ToString());
-            sb.AppendLine($"  Seats: {this.Seats}");
+            //sb.AppendLine($"  Seats: {this.Seats}");
             return sb.ToString();
+        }
+
+        protected override string PrintAdditionalInfo()
+        {
+            return string.Format("  Seats: {0}t", this.Seats);
         }
     }
 
