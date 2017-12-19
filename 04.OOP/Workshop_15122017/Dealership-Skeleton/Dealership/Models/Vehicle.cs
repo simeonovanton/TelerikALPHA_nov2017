@@ -110,9 +110,9 @@ namespace Dealership.Models
             {
                 builder.AppendLine(string.Format("{0}", CommentsHeader));
 
-                foreach (var comment in this.Comments)
+                foreach (var commentt in this.Comments)
                 {
-                    builder.AppendLine(comment.ToString());
+                    builder.AppendLine(string.Format($"{commentt}"));
                 }
 
                 builder.AppendLine(string.Format("{0}", CommentsHeader));

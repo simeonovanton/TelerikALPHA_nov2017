@@ -4,6 +4,6 @@ namespace Dealership.Contracts
 {
     public interface ICommentable
     {
-        IList<IComment> Comments { get; }
+        IList<IComment> Comments { get; set; }
     }
 }

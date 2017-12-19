@@ -130,7 +130,7 @@ namespace Dealership.Models
                     Console.WriteLine("You are not VIP and cannot add more than 5 vehicles!");
                 }
             }
-            else if (this.Role == Role.Normal)
+            else if (this.Role == Role.VIP)
             {
                 this.vehicles.Add(vehicle);
             }
@@ -154,26 +154,11 @@ namespace Dealership.Models
             vehicleToRemoveComment.Comments.Remove(commentToRemove);
         }
 
-        //public string PrintVehicles()
-        //{
-        //    var sb = new StringBuilder();
-        //    sb.AppendLine($"--USER {this.Username}--");
-        //    if (Vehicles.Count == 0)
-        //    {
-        //        sb.AppendLine($"--NO VEHICLES--");
-        //    }
-        //    else
-        //    {
-        //        int counter = 0;
-        //        foreach (var item in Vehicles)
-        //        {
-        //            counter++;
-        //            sb.AppendLine($"{counter}. {item.Type}");
-        //            sb.AppendLine(item.ToString());
-        //        }
-        //    }
-        //    return sb.ToString();
-        //}
+        public override string ToString()
+        {
+            //1. Username: pesho, FullName: Petar Petrov, Role: Normal
+            return string.Format($"Username: {this.Username}, FullName: {this.FirstName} {this.LastName}, Role: {this.Role}").Trim();
+        }
 
         public string PrintVehicles()
         {

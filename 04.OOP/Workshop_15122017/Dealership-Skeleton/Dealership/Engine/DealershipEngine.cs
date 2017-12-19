@@ -212,7 +212,7 @@ namespace Dealership.Engine
 
             return string.Format(UserRegisterеd, username);
         }
-
+         
         private string Login(string username, string password)
         {
             if (this.loggedUser != null)
