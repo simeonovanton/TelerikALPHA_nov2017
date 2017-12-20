@@ -13,11 +13,11 @@ namespace FurnitureManufacturer.Models.Furnitures
 
         public Furniture(string model, string materialType, decimal price, decimal height)
         {
-            Guard.WhenArgument(model, "Model").IsNull().Throw();
+            Guard.WhenArgument(model, "Model").IsNull().IsEmpty().Throw();
             Guard.WhenArgument(model.Length, "Model length").IsLessThan(3).Throw();
             Guard.WhenArgument(materialType, "Material type").IsNull().Throw();
-            Guard.WhenArgument(price, "Price cannot be less than zero").IsLessThan(0).Throw();
-            Guard.WhenArgument(height, "Height cannot be less than zero").IsLessThan(0).Throw();
+            Guard.WhenArgument(price, "Price cannot be less than zero").IsLessThan(0).IsEqual(0).Throw();
+            Guard.WhenArgument(height, "Height cannot be less than zero").IsLessThan(0).IsEqual(0).Throw();
         }
 
         public string Model => this.model;
@@ -34,15 +34,15 @@ namespace FurnitureManufacturer.Models.Furnitures
             }
             protected set
             {
-                this.height = value;
+                
             }
         }
 
         // Do we need this? Can I delete it?
-        protected virtual string AdditionalInfo()
-        {
-            return string.Empty;
-        }
+        //protected virtual string AdditionalInfo()
+        //{
+        //    return string.Empty;
+        //}
 
         public override string ToString()
         {

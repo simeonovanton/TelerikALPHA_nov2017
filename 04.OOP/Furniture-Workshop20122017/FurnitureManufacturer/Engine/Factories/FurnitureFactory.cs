@@ -6,38 +6,41 @@ using System;
 
 namespace FurnitureManufacturer.Engine.Factories
 {
-    public class FurnitureFactory //: IFurnitureFactory
+    public class FurnitureFactory : IFurnitureFactory
     {
         private const string Wooden = "wooden";
         private const string Leather = "leather";
         private const string Plastic = "plastic";
         private const string InvalidMaterialName = "Invalid material name: {0}";
 
-        public ITable CreateTable(string model, string materialType, decimal price, decimal height, decimal length, decimal width)
+        public IFurniture CreateTable(string model, string materialType, decimal price, decimal height, decimal length, decimal width)
         {
-            // Will do it later. I promise!
-            return null;
+            var material = GetMaterialType(materialType).ToString();
+
+            return new Table( model,  material,  price,  height,  length,  width);
         }
 
-        public IChair CreateChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
+        public IFurniture CreateChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
         {
-            // Will do it later. I promise!
-            return null;
+            var material = GetMaterialType(materialType).ToString();
+
+            return new Chair(model, material, price, height, numberOfLegs);
         }
 
-        public IAdjustableChair CreateAdjustableChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
+        public IFurniture CreateAdjustableChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
         {
-            // Will do it later. I promise!
-            return null;
+            var material = GetMaterialType(materialType).ToString();
+
+            return new AdjustableChair( model,  material,  price,  height,  numberOfLegs);
         }
 
-        public IConvertibleChair CreateConvertibleChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
+        public IFurniture CreateConvertibleChair(string model, string materialType, decimal price, decimal height, int numberOfLegs)
         {
-            // Will do it later. I promise!
-            return null;
+            var material = GetMaterialType(materialType).ToString();
+            return new ConvertibleChair( model,  material,  price,  height,  numberOfLegs);
         }
 
-        private MaterialType GetMaterialType(string material)
+        private static MaterialType GetMaterialType(string material)
         {
             switch (material)
             {
@@ -51,5 +54,6 @@ namespace FurnitureManufacturer.Engine.Factories
                     throw new ArgumentException(string.Format(InvalidMaterialName, material));
             }
         }
+
     }
 }
