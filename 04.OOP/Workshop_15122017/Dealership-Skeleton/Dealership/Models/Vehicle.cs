@@ -104,18 +104,18 @@ namespace Dealership.Models
 
             if (this.Comments.Count <= 0)
             {
-                builder.AppendLine(string.Format("{0}", NoCommentsHeader));
+                builder.AppendLine(string.Format("  {0}", NoCommentsHeader));
             }
             else
             {
-                builder.AppendLine(string.Format("{0}", CommentsHeader));
+                builder.AppendLine(string.Format("  {0}", CommentsHeader));
 
                 foreach (var commentt in this.Comments)
                 {
-                    builder.AppendLine(string.Format($"{commentt}"));
+                    builder.AppendLine(string.Format($"  {commentt}"));
                 }
 
-                builder.AppendLine(string.Format("{0}", CommentsHeader));
+                builder.AppendLine(string.Format("  {0}", CommentsHeader));
             }
 
             return builder.ToString().TrimEnd();

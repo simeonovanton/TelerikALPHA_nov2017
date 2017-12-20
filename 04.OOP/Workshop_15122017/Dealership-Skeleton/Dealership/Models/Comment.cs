@@ -27,6 +27,21 @@ namespace Dealership.Models
                 this.content = value;
             }
         }
-        public string Username { get; set; }
+        public string Username
+        {
+            get { return this.author; }
+            set
+            { this.author = value; }
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(string.Format($"  ----------"));
+            sb.AppendLine(string.Format($"  {this.Content}"));
+            sb.AppendLine(string.Format($"    User: {this.Username}"));
+            sb.AppendLine(string.Format($"  ----------"));
+            return sb.ToString();
+        }
     }
 }
