@@ -37,5 +37,11 @@ namespace FurnitureManufacturer.Models.Furnitures
             get { return this.area; }
             set { this.area = this.length * this.width; }
         }
+
+        protected override string AdditionalInfo()
+        {
+            return string.Format($" Length: {this.Length}, Width: {this.Width}, Area: {this.Area}");
+        }
+
     }
 }

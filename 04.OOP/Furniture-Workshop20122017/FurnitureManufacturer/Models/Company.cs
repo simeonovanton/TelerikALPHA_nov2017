@@ -13,7 +13,7 @@ namespace FurnitureManufacturer.Models
     {
         private readonly string name;
         private readonly string registrationNumber;
-        private  ICollection<IFurniture> furnitures;
+        private ICollection<IFurniture> furnitures;
 
         public Company(string name, string registrationNumber)
         {
@@ -26,6 +26,7 @@ namespace FurnitureManufacturer.Models
                 throw new ArgumentException("Registration number is not valid");
             }
             this.registrationNumber = registrationNumber;
+            this.furnitures = new List<IFurniture>();
         }
 
         public string Name
@@ -42,23 +43,47 @@ namespace FurnitureManufacturer.Models
 
         public void Add(IFurniture furniture)
         {
+            this.furnitures.Add(furniture);
         }
+
+//"{0} - {1} - {2} {3}",
+//this.Name,
+//this.RegistrationNumber,
+//this.Furnitures.Count != 0 ? this.Furnitures.Count.ToString() : "no",
+//this.Furnitures.Count != 1 ? "furnitures" : "furniture"
 
         public string Catalog()
         {
-            var strBuilder = new StringBuilder();
-            // Finish it
-
+            var strBuilder = new StringBuilder(); 
+            strBuilder.AppendLine(string.Format("{0} - {1} - {2} {3}",
+                this.Name,
+                this.RegistrationNumber,
+                this.Furnitures.Count != 0 ? this.Furnitures.Count.ToString() : "no",
+                this.Furnitures.Count != 1 ? "furnitures" : "furniture"));
+            List<IFurniture> orderedFurnitures = this.furnitures.OrderByDescending(x => x.Price).ThenByDescending(x => x.Model).ToList();
+            foreach (var item in orderedFurnitures)
+            {
+                strBuilder.AppendLine(item.ToString());
+            }
             return strBuilder.ToString().Trim();
         }
 
         public IFurniture Find(string model)
         {
-            return null;
+            foreach (var item in this.Furnitures)
+            {
+                if (item.Model == model)
+                {
+                    return item;
+                }
+            }
+                return null;
         }
 
         public void Remove(IFurniture furniture)
         {
+            this.Furnitures.Remove(furniture);
         }
     }
 }
+

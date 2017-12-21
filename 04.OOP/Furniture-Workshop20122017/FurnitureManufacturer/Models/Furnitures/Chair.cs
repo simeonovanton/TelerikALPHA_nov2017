@@ -1,5 +1,7 @@
 ﻿using FurnitureManufacturer.Interfaces;
 using Bytes2you.Validation;
+using System.Text;
+
 namespace FurnitureManufacturer.Models.Furnitures
 {
     public class Chair : Furniture, IFurniture, IChair
@@ -14,5 +16,20 @@ namespace FurnitureManufacturer.Models.Furnitures
         }
 
         public int NumberOfLegs { get { return this.numberOfLegs; } }
+
+       
+        protected override string AdditionalInfo()
+        {
+            return string.Format($", Legs: {this.NumberOfLegs}");
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.Append(AdditionalInfo());
+
+            return sb.ToString();
+        }
     }
 }
