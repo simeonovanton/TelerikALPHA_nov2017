@@ -2,8 +2,8 @@
 {
     public enum MaterialType
     {
-        Wooden,
-        Leather,
-        Plastic
+        Land,
+        Air,
+        Sea
     }
 }
