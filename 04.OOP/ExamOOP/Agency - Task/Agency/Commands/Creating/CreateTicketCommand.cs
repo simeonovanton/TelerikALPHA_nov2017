@@ -38,7 +38,7 @@ namespace Agency.Commands.Creating
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateJourney command parameters.");
+                throw new ArgumentException("Failed to parse CreateTicket command parameters.");
             }
             //(IJourney journey, decimal administrativeCosts)
             var ticket = this.factory.CreateTicket(journey, administrativeCosts);

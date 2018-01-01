@@ -81,8 +81,8 @@ namespace Agency.Models
             sb.AppendLine($"Start location: {this.startLocation}");
             sb.AppendLine($"Destination: {this.destination}");
             sb.AppendLine($"Distance: {this.distance}");
-            sb.AppendLine($"Vehicle type: {this.vehicle}");
-            sb.AppendLine($"Travel costs: {this.CalculateTravelCosts()}");
+            sb.AppendLine($"Vehicle type: {this.vehicle.Type}");
+            sb.Append($"Travel costs: {this.CalculateTravelCosts()}");
 
             return sb.ToString();
         }

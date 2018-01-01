@@ -59,8 +59,8 @@ namespace Agency.Models.Vehicles
             var sb = new StringBuilder();
             sb.AppendLine($"Passenger capacity: {this.passengerCapacity}");
             sb.AppendLine($"Price per kilometer: {this.pricePerKilometer}");
-            sb.AppendLine($"Vehicle type: {this.type}");
-            return sb.ToString();
+            sb.Append($"Vehicle type: {this.type}");
+            return sb.ToString().Trim();
         }
     }
 }

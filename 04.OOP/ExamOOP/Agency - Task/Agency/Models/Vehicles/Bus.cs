@@ -45,7 +45,7 @@ namespace Agency.Models.Vehicles
             var sb = new StringBuilder();
             sb.AppendLine($"\nBus ----");
             sb.AppendLine(base.ToString());
-            return sb.ToString();
+            return sb.ToString().Trim();
         }
     }
 }

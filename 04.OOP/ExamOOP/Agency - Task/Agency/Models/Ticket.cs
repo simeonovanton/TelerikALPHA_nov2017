@@ -33,7 +33,7 @@ namespace Agency.Models
             var sb = new StringBuilder();
             sb.AppendLine("Ticket ----");
             sb.AppendLine($"Destination: {this.journey.Destination}");
-            sb.AppendLine($"Price: {this.CalculatePrice()}");
+            sb.Append($"Price: {this.CalculatePrice()}");
 
             return sb.ToString();
         }

@@ -1,10 +1,10 @@
-﻿using Agency.Commands.Contracts;
-using Agency.Core.Contracts;
-using Agency.Core.Factories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Agency.Commands.Contracts;
+using Agency.Core.Contracts;
+using Agency.Core.Factories;
 
 namespace Agency.Core.Providers
 {

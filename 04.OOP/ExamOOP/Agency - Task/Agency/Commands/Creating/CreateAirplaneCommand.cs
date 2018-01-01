@@ -25,18 +25,20 @@ namespace Agency.Commands.Creating
         {
             int passengerCapacity;
             decimal pricePerKilometer;
+            bool hasFreeFood;
 
             try
             {
                 passengerCapacity = int.Parse(parameters[0]);
                 pricePerKilometer = decimal.Parse(parameters[1]);
+                hasFreeFood = bool.Parse(parameters[2]);
             }
             catch
             {
                 throw new ArgumentException("Failed to parse CreateAirplane command parameters.");
             }
 
-            bool hasFreeFood = false;
+            
             IAirplane airplane = this.factory.CreateAirplane(passengerCapacity, pricePerKilometer, hasFreeFood);
             //CreateAirplane(int passengerCapacity, decimal pricePerKilometer, bool hasFreeFood);
             this.engine.Vehicles.Add((IVehicle)airplane);

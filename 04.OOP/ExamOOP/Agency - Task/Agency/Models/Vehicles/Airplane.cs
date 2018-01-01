@@ -9,7 +9,7 @@ namespace Agency.Models.Vehicles
 {
     class Airplane : Vehicle, IAirplane
     {
-        private bool hasFreeFood = true;
+        private bool hasFreeFood;
 
         public Airplane(int passengerCapacity, decimal pricePerKilometer, bool hasFreeFood)
             :base(passengerCapacity, pricePerKilometer, VehicleType.Air)
@@ -51,8 +51,8 @@ namespace Agency.Models.Vehicles
             var sb = new StringBuilder();
             sb.AppendLine($"\nAirplane ----");
             sb.AppendLine(base.ToString());
-            sb.AppendLine($"Has free food: {this.hasFreeFood}");
-            return sb.ToString();
+            sb.Append($"Has free food: {this.hasFreeFood}");
+            return sb.ToString().Trim();
         }
     }
 }

@@ -60,8 +60,8 @@ namespace Agency.Models.Vehicles
             var sb = new StringBuilder();
             sb.AppendLine($"\nTrain ----");
             sb.AppendLine(base.ToString());
-            sb.AppendLine($"Carts amount: {this.carts}");
-            return sb.ToString();
+            sb.Append($"Carts amount: {this.carts}");
+            return sb.ToString().Trim();
         }
 
     }
