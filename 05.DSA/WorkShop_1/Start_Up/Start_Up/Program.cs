@@ -12,44 +12,61 @@ namespace Start_Up
         {
             int N = int.Parse(Console.ReadLine());
 
-            var buildings = Console.ReadLine()
+            //var buildings = Console.ReadLine()
 
-                .Split().Select(x => int.Parse(x)).ToArray();
-
-            Stack<int> jumpsPerBuilding = new Stack<int>();
-            int[] maxJumpsMatrix = new int[N];
-            int maxJump = 0;
-            for (int i = 0; i < N - 1; i++)
+            //    .Split().Select(x => int.Parse(x)).ToArray();
+            var stringBuildings = Console.ReadLine().Split();
+            int maxHeight = int.MinValue;
+            int[] buildings = new int[N];
+            for (int i = 0; i < N; i++)
             {
-                int maxJumps = 0;
+                if (int.Parse(stringBuildings[i]) > maxHeight)
+                {
+                    maxHeight = int.Parse(stringBuildings[i]);
+                }
+                buildings[i] = int.Parse(stringBuildings[i]);
+            }
+
+            LinkedList<int> jumpsPerBuilding = new LinkedList<int>();
+            //Stack<int> jumpsPerBuilding = new Stack<int>();
+
+            int[] maxJumpsMatrix = new int[N];
+            int totalJumps = 0;
+            for (int i = 0; i < N; i++)
+            {
+                int counter = 0;
+                int currentBuilding = buildings[i];
+
+                //if (buildings[i] == maxHeight)
+                //{
+                //    continue;
+                //}
+               
                 for (int j = i + 1; j < N; j++)
                 {
-                    if (buildings[i] < buildings[j] )
+                    if (currentBuilding == maxHeight)
                     {
-                        jumpsPerBuilding.Push(buildings[j]);
-                        if (jumpsPerBuilding.Count >= maxJumps)
-                        {
-                            maxJumps = jumpsPerBuilding.Count;
-                        }
+                        break;
                     }
-                    else
+                    if (currentBuilding < buildings[j])
                     {
-                        jumpsPerBuilding.Clear();
+                        counter++;
+                        currentBuilding = buildings[j];
                     }
                 }
-                maxJumpsMatrix[i] = maxJumps;
-            }
-
-            foreach (var jump in maxJumpsMatrix)
-            {
-                if (jump >= maxJump)
+                if (counter > totalJumps)
                 {
-                    maxJump = jump;
+                    totalJumps = counter;
                 }
+                jumpsPerBuilding.AddLast(counter);
+                //jumpsPerBuilding.Push(counter);
             }
 
-            Console.WriteLine(maxJump);
-            Console.WriteLine(string.Join(" ", maxJumpsMatrix));
-        }   
+
+            //var newJumps = jumpsPerBuilding.Reverse();
+            Console.WriteLine(totalJumps);
+            // Console.WriteLine(string.Join(" ", newJumps));
+             Console.WriteLine(string.Join(" ", jumpsPerBuilding));
+        }
     }
 }
