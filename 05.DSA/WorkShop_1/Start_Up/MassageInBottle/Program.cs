@@ -8,34 +8,71 @@ namespace MassageInBottle
 {
     class Program
     {
-        public static Dictionary<int, char> dict = new Dictionary<int, char>();
+        public static Dictionary<string, char> dict = new Dictionary<string, char>();
+        public static string message = "";
+        public static string code = "";
+        public static int possibleMessages = 0;
+        static int messageIndex = 0;
+        static StringBuilder sb = new StringBuilder();
+        public static List<string> solutions = new List<string>();
 
         static void Main()
-        {
-            string message = Console.ReadLine();
-            string code = Console.ReadLine();
 
-            int newSubcode = 0;
+        {
+            message = Console.ReadLine();
+            code = Console.ReadLine();
+            int endIndex = 0;
+            string newSubcode = "";
+
             for (int i = 0; i < code.Length; i++)
             {
                 if (Char.IsLetter(code[i]))
                 {
-                    int endIndex = i;
+                    endIndex = i;
                     do
                     {
                         endIndex++;
-                    } while (Char.IsLetter(code[endIndex]));
-                    newSubcode = int.Parse(code.Substring(i + 1, endIndex - 1));
+                    } while (!Char.IsLetter(code[endIndex]) && ((endIndex + 1) < code.Length));
+
+                    if (endIndex + 1 < code.Length)
+                    {
+                        newSubcode = code.Substring(i + 1, endIndex - i - 1);
+                    }
+                    else
+                    {
+                        newSubcode = code.Substring(i + 1, endIndex - i);
+                    }
+                    dict.Add(newSubcode, code[i]);
                 }
-                dict.Add(newSubcode, code[i]);
             }
-            
+
+            FindSequence(messageIndex);
+            solutions.Sort();
+            Console.WriteLine(solutions.Count);
+            foreach (var solution in solutions)
+            {
+                Console.WriteLine(solution);
+            }
+
         }
 
-        public static string FindSequence(int index, string message)
+        public static void FindSequence(int messageIndex)
         {
-            string subMessage = null;
-            return subMessage;
+            if (messageIndex == message.Length)
+            {
+                solutions.Add(sb.ToString());
+                return;
+            }
+            foreach (var key  in dict)
+            {
+                if (message.Substring(messageIndex).StartsWith(key.Key))
+                {
+                    sb.Append(key.Value);
+                    FindSequence(messageIndex + key.Key.Length);
+                    sb.Length--;
+                }
+            }
+    
         }
     }
 }
