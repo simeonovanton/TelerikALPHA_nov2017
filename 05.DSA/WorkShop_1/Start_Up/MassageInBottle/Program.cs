@@ -63,7 +63,7 @@ namespace MassageInBottle
                 solutions.Add(sb.ToString());
                 return;
             }
-            foreach (var key  in dict)
+            foreach (var key in dict)
             {
                 if (message.Substring(messageIndex).StartsWith(key.Key))
                 {
@@ -72,7 +72,7 @@ namespace MassageInBottle
                     sb.Length--;
                 }
             }
-    
+
         }
     }
 }
