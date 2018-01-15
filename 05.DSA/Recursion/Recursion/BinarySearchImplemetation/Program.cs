@@ -13,7 +13,7 @@ namespace BinarySearchImplemetation
             int[] array = { 1, 5, 15, 30, 47, 56, 89, 101 };
             int value = 56;
 
-            Console.WriteLine(BinarySearch(value, array, 0, array.Length - 1));
+            //Console.WriteLine(BinarySearch(value, array, 0, array.Length - 1));
 
         }
 
@@ -34,7 +34,7 @@ namespace BinarySearchImplemetation
         //        Console.Write(item + " ");
         //    }
 
-            return 0;//Binary(array, minIndex, maxIndex);
-        }
+            //return 0;//Binary(array, minIndex, maxIndex);
+        //}
     }
 }
