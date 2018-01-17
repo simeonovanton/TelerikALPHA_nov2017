@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D56974F7-BF4A-4DF5-9A24-1C7F608E9B9B}</ProjectGuid>
+    <ProjectGuid>{2823ECE7-0DAA-404B-B8D7-FB36344DCA56}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Swapping4_Jokata</RootNamespace>
-    <AssemblyName>Swapping4_Jokata</AssemblyName>
+    <RootNamespace>OredredSetTest</RootNamespace>
+    <AssemblyName>OredredSetTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Swapping4.cs" />
+    <Compile Include="OrderedSetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
