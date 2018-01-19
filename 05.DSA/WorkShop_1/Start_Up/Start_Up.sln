@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargestAreaInMatrix_Viktor"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra_Algorithm", "Dijkstra_Algorithm\Dijkstra_Algorithm.csproj", "{A28105F0-DEE2-4CA5-B60F-B15EDCE63887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slogan", "Slogan\Slogan.csproj", "{790CC396-AE7A-414C-9250-07F0E2FD6437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slogan_Viktor", "Slogan_Viktor\Slogan_Viktor.csproj", "{AA52642F-4B8D-4C7F-BB23-DDE7EC230D2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{A28105F0-DEE2-4CA5-B60F-B15EDCE63887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A28105F0-DEE2-4CA5-B60F-B15EDCE63887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A28105F0-DEE2-4CA5-B60F-B15EDCE63887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{790CC396-AE7A-414C-9250-07F0E2FD6437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790CC396-AE7A-414C-9250-07F0E2FD6437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790CC396-AE7A-414C-9250-07F0E2FD6437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790CC396-AE7A-414C-9250-07F0E2FD6437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA52642F-4B8D-4C7F-BB23-DDE7EC230D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA52642F-4B8D-4C7F-BB23-DDE7EC230D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA52642F-4B8D-4C7F-BB23-DDE7EC230D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA52642F-4B8D-4C7F-BB23-DDE7EC230D2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
