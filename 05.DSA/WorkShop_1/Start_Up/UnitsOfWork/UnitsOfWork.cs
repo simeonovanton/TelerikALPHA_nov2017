@@ -82,6 +82,15 @@ namespace UnitsOfWork
                 {
                     unitByType.Add(command[2], new SortedSet<Unit>());
                 }
+                //TODO check 10 !!!!!
+                if (unitByType[command[2]].Count == 10)
+                {
+                    if (unitByType[command[2]].Last().CompareTo(unitToAdd) == -1)
+                    {
+                        unitByType[command[2]].Remove(unitByType[command[2]].Last());
+                        unitByType[command[2]].Add(unitToAdd);
+                    }
+                }
                 unitByType[command[2]].Add(unitToAdd);
                 dictionaryOfUnits.Add(unitToAdd.Name, unitToAdd);
                 unitByAttack.Add(unitToAdd);
@@ -89,7 +98,7 @@ namespace UnitsOfWork
             }
         }
 
-            public static void RemoveUnit(string[] command)
+        public static void RemoveUnit(string[] command)
             {
                 if (dictionaryOfUnits.ContainsKey(command[1]))
                 {
