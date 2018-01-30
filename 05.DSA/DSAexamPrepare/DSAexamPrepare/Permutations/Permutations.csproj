@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE8698F2-B62A-4964-A4EE-3E040446C307}</ProjectGuid>
+    <ProjectGuid>{7EF48C4C-2EF4-432A-80D2-C0E4E6568F00}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Calculate_Permutation</RootNamespace>
-    <AssemblyName>Calculate_Permutation</AssemblyName>
+    <RootNamespace>Permutations</RootNamespace>
+    <AssemblyName>Permutations</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calc_Permutation.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

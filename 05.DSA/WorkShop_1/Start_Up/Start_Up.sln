@@ -47,9 +47,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exam41", "Exam41\Exam41.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exam11", "Exam11\Exam11.csproj", "{551C7E29-836B-4CA9-ADDD-E22BE09F7BEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutations", "Permutations\Permutations.csproj", "{A28E66FA-7204-46F4-96D8-45033C17F4A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculate_Variation", "Calculate_Permutation\Calculate_Variation.csproj", "{BE8698F2-B62A-4964-A4EE-3E040446C307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculate_Permutation", "Calculate_Permutation\Calculate_Permutation.csproj", "{BE8698F2-B62A-4964-A4EE-3E040446C307}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc_VAriation_NoRepeating", "Calc_Permut_NoRepeating\Calc_VAriation_NoRepeating.csproj", "{9E9ACD5D-8D2F-4492-84A7-764674C5961B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,14 +145,14 @@ Global
 		{551C7E29-836B-4CA9-ADDD-E22BE09F7BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551C7E29-836B-4CA9-ADDD-E22BE09F7BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{551C7E29-836B-4CA9-ADDD-E22BE09F7BEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A28E66FA-7204-46F4-96D8-45033C17F4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A28E66FA-7204-46F4-96D8-45033C17F4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A28E66FA-7204-46F4-96D8-45033C17F4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A28E66FA-7204-46F4-96D8-45033C17F4A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE8698F2-B62A-4964-A4EE-3E040446C307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE8698F2-B62A-4964-A4EE-3E040446C307}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE8698F2-B62A-4964-A4EE-3E040446C307}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE8698F2-B62A-4964-A4EE-3E040446C307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9ACD5D-8D2F-4492-84A7-764674C5961B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9ACD5D-8D2F-4492-84A7-764674C5961B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9ACD5D-8D2F-4492-84A7-764674C5961B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9ACD5D-8D2F-4492-84A7-764674C5961B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

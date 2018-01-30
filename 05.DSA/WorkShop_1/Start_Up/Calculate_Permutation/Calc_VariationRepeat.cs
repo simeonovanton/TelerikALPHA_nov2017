@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculate_Permutation
 {
-    class Calc_Permutation
+    class Calc_VariationRepeat
     {
         static void Main()
         {
@@ -30,7 +30,7 @@ namespace Calculate_Permutation
             }
             else
             {
-                for (int i = 0; i < n; i++)С
+                for (int i = 0; i < n; i++)
                 {
                     arr[index] = i;
                     Permutations(index + 1, k, n, arr);
