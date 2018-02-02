@@ -1,2 +1,0 @@
-createboxer Anthony Joshua USA heavyweight 20 test
-end
