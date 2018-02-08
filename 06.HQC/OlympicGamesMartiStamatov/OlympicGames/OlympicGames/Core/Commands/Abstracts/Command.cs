@@ -20,7 +20,7 @@ namespace OlympicGames.Core.Commands.Abstracts
 
         public IList<string> CommandParameters { get; protected set; }
 
-        public OlympicCommittee Committee { get; }
+        public IOlympicCommittee Committee { get; }
 
         public IOlympicsFactory Factory { get; }
 

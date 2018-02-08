@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Core\Contracts\ICommandFactory.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
+    <Compile Include="Core\Providers\Decorators\LoggerCommandProcessorDecorator.cs" />
     <Compile Include="Core\Providers\IoWrapper.cs" />
     <Compile Include="Core\Providers\ConsoleWriter.cs" />
     <Compile Include="Core\Providers\ConsoleReader.cs" />

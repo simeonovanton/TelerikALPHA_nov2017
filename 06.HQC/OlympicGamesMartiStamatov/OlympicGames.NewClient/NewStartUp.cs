@@ -21,20 +21,20 @@ namespace OlympicGames.NewClient
 
             var container = builder.Build();
 
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var engine = scope.Resolve<IEngine>();
-                using (var scope1 = container.BeginLifetimeScope())
-                {
-                    var engine1 = scope1.Resolve<IEngine>(); ;
-                    Console.WriteLine(engine == engine1);
-                }
-            }
+            //using (var scope = container.BeginLifetimeScope())
+            //{
+            //    var engine = scope.Resolve<IEngine>();
+            //    using (var scope1 = container.BeginLifetimeScope())
+            //    {
+            //        var engine1 = scope1.Resolve<IEngine>(); ;
+            //        Console.WriteLine(engine == engine1);
+            //    }
+            //}
             
-            //var engine = container.Resolve<IEngine>();
+            var engine = container.Resolve<IEngine>();
             //var engine1 = container.Resolve<IEngine>();
             //Console.WriteLine(engine == engine1);
-            //engine.Run();
+            engine.Run();
 
             //  ICommandParser commandParser,
             //ICommandProcessor commandProcessor,

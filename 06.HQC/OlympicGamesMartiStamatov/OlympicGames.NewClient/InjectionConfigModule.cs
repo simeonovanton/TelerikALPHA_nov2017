@@ -26,8 +26,10 @@ namespace OlympicGames.NewClient
             //builder.RegisterType<Engine>().As<IEngine>().SingleInstance();
 
             builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(IEngine)))
-            .Where(t => t.Name.EndsWith("Engine"))
-            .AsImplementedInterfaces();
+            .AsImplementedInterfaces().SingleInstance(); ;
+
+            //builder.RegisterType<ContainerBuilder>().AsSelf().SingleInstance();
+
 
 
         }

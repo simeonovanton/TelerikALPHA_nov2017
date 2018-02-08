@@ -9,8 +9,9 @@ namespace OlympicGames.Core.Factories
 {
     public class CommandFactory : ICommandFactory
     {
-        public CommandFactory()
+        public CommandFactory(IComponentContext container)
         {
+            this.container = container;
         }
     }
 }
