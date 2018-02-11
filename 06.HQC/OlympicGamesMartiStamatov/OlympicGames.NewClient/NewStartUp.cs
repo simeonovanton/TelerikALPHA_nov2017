@@ -12,9 +12,9 @@ using OlympicGames.Core.Providers;
 
 namespace OlympicGames.NewClient
 {
-    class NewStartUp
+    public class NewStartUp
     {
-        static void Main()
+        public static void Main()
         {
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());

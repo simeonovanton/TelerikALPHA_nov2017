@@ -9,34 +9,27 @@ namespace OlympicGames.Core.Providers
 {
     public class CommandParser : ICommandParser
     {
-    
+        private readonly ICommandFactory cmdFactory;
+
+        public CommandParser(ICommandFactory cmdFactory)
+        {
+            if (cmdFactory == null)
+            {
+                throw new ArgumentNullException();
+            }
+            this.cmdFactory = cmdFactory;
+        }
+
+        protected ICommandFactory CmdFactory => cmdFactory;
+
         public ICommand ParseCommand(string commandLine)
         {
             var lineParameters = commandLine.Trim().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             var commandName = lineParameters[0];
             var parameters = lineParameters.Skip(1);
-
-            var typeInfo = FindCommand(commandName);
-            var command = Activator.CreateInstance(typeInfo, parameters.ToList()) as ICommand;
+            var command = this.CmdFactory.Create(commandName);
             return command;
-        }
-
-        private TypeInfo FindCommand(string commandName)
-        {
-            Assembly commandAssembly = Assembly.GetAssembly(typeof(ICommand));
-
-            var commandType = commandAssembly.DefinedTypes
-                .Where(x => x.ImplementedInterfaces.Any(y => y == typeof(ICommand)))
-                .Where(x => !x.IsAbstract)
-                .SingleOrDefault(x => x.Name.ToLower() == (commandName.ToLower() + "command"));
-
-            if (commandType == null)
-            {
-                throw new ArgumentException("No such command implemented! Consider implementing it before using!");
-            }
-
-            return commandType;
         }
 
     }
