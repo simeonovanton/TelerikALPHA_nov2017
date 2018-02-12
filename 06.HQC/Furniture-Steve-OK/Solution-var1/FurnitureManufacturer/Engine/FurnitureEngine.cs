@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FurnitureManufacturer.Engine
 {
-    public sealed class FurnitureEngine : IEngine
+    public  class FurnitureEngine : IEngine
     {
         private readonly IRenderer renderer;
         private readonly ICommandsFactory factory;
