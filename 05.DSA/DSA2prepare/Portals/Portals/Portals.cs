@@ -59,21 +59,17 @@ namespace Portals
 
         public static void FindMaxPower(int row, int col)
         {
-            // Compare!!!
-            int currentPower = lab[row, col];
-            // Call the method itself for all directions
+            if (!InRange(row, col))
+            {
+                return;
+            }
 
-            //Left
-            if (!InRange(row, col - currentPower))
+            if (lab[row, col] == -1)
             {
-                // Out of area
                 return;
             }
-            if (lab[row, col - currentPower] == -1)
-            {
-                // Can't enter there - It's tiny room full of frogs or I was already there!!!
-                return;
-            }
+
+            int currentPower = lab[row, col];
             powerStack.Push(currentPower);
             accumulatedPower += currentPower;
             if (accumulatedPower > maxPower)
@@ -83,35 +79,99 @@ namespace Portals
             //Mark the cell as visired
             lab[row, col] = -1;
             FindMaxPower(row, col - currentPower); //Left
-
-            //Up
-            if (!InRange(row - currentPower, col))
-            {
-                // Out of area
-                return;
-            }
-            if (lab[row - currentPower, col] == -1)
-            {
-                // Can't enter there - It's tiny room full of frogs or I was already there!!!
-                return;
-            }
-            powerStack.Push(currentPower);
-            accumulatedPower += currentPower;
-            if (accumulatedPower > maxPower)
-            {
-                maxPower = accumulatedPower;
-            }
-            //Mark the cell as visired
-            lab[row, col] = -1;
             FindMaxPower(row - currentPower, col); //Up
-
-
-            FindMaxPower(row - currentPower, col); //Up
-            FindMaxPower(row - currentPower, col + currentPower); //Right
-            FindMaxPower(row + currentPower, col); //Down
-
+            FindMaxPower(row, col + currentPower); //Right
+            FindMaxPower(row - currentPower, col); //Down
             //Mark the cell as unvisited
             lab[row, col] = powerStack.Pop();
+            accumulatedPower -= currentPower;
+
+            //// Call the method itself for all directions
+
+            ////Left
+            //if (InRange(row, col - currentPower) && lab[row, col - currentPower] != -1)
+            //{
+            //    powerStack.Push(currentPower);
+            //    accumulatedPower += currentPower;
+            //    if (accumulatedPower > maxPower)
+            //    {
+            //        maxPower = accumulatedPower;
+            //    }
+            //    //Mark the cell as visired
+            //    lab[row, col] = -1;
+            //    FindMaxPower(row, col - currentPower); //Left
+            //    //Mark the cell as unvisited
+            //    lab[row, col] = powerStack.Pop();
+            //    accumulatedPower -= currentPower;
+
+            //}
+            ////else
+            ////{
+            ////    return;
+            ////}
+
+            ////Up
+            //if (InRange(row - currentPower, col) && lab[row - currentPower, col] != -1)
+            //{
+            //    powerStack.Push(currentPower);
+            //    accumulatedPower += currentPower;
+            //    if (accumulatedPower > maxPower)
+            //    {
+            //        maxPower = accumulatedPower;
+            //    }
+            //    //Mark the cell as visired
+            //    lab[row, col] = -1;
+            //    FindMaxPower(row - currentPower, col); //Up
+            //    //Mark the cell as unvisited
+            //    lab[row, col] = powerStack.Pop();
+            //    accumulatedPower -= currentPower;
+            //}
+            ////else
+            ////{
+            ////    return;
+            ////}
+
+            ////Right
+            //if (InRange(row, col + currentPower) && lab[row, col + currentPower] != -1)
+            //{
+            //    powerStack.Push(currentPower);
+            //    accumulatedPower += currentPower;
+            //    if (accumulatedPower > maxPower)
+            //    {
+            //        maxPower = accumulatedPower;
+            //    }
+            //    //Mark the cell as visired
+            //    lab[row, col] = -1;
+            //    FindMaxPower(row, col + currentPower); //Right
+            //    //Mark the cell as unvisited
+            //    lab[row, col] = powerStack.Pop();
+            //    accumulatedPower -= currentPower;
+            //}
+            ////else
+            ////{
+            ////    return;
+            ////}
+
+            ////Down
+            //if (InRange(row + currentPower, col) && lab[row + currentPower, col] != -1)
+            //{
+            //    powerStack.Push(currentPower);
+            //    accumulatedPower += currentPower;
+            //    if (accumulatedPower > maxPower)
+            //    {
+            //        maxPower = accumulatedPower;
+            //    }
+            //    //Mark the cell as visired
+            //    lab[row, col] = -1;
+            //    FindMaxPower(row - currentPower, col); //Down
+            //    //Mark the cell as unvisited
+            //    lab[row, col] = powerStack.Pop();
+            //    accumulatedPower -= currentPower;
+            //}
+            ////else
+            ////{
+            ////    return;
+            ////}
         }
 
         public static bool InRange(int row, int col)
