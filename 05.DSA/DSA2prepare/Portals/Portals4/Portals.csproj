@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7F3C67C-778A-4478-A586-D7236204DCEE}</ProjectGuid>
+    <ProjectGuid>{C81AAFFC-4254-4B51-98D6-88DF849FFE98}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Portals</RootNamespace>
-    <AssemblyName>Portals</AssemblyName>
+    <RootNamespace>Portals4</RootNamespace>
+    <AssemblyName>Portals4</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

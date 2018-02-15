@@ -53,48 +53,37 @@ namespace Portals
                     }
                 }
             }
-            FindMaxPower(startR, startC);
+            FindMaxPower(startR, startC, 0);
             Console.WriteLine(maxPower);
         }
 
-        public static void FindMaxPower(int row, int col)
+        public static void FindMaxPower(int row, int col, int previousPower)
         {
-            if (!InRange(row, col))
-            { 
-                return;
-            }
-
-            if (lab[row, col] == -1)
+            if (!InRange(row, col) || lab[row, col] == -1)
             {
                 return;
             }
 
             int currentPower = lab[row, col];
+            powerStack.Push(currentPower);
 
-            //powerStack.Push(currentPower);
-            if (lab[row, col] != 11)
-            {
-                accumulatedPower += currentPower;
-            }
-
+            accumulatedPower += previousPower;
             if (accumulatedPower > maxPower)
             {
                 maxPower = accumulatedPower;
             }
-            //Mark the cell as visited
-            lab[row, col] = 11;
+
+
+            //Mark the cell as visired
+            lab[row, col] = 100; //To set it Out of Range
             // Call the method itself for all directions
-            FindMaxPower(row, col - currentPower); //Left
-            FindMaxPower(row - currentPower, col); //Up
-            FindMaxPower(row, col + currentPower); //Right
-            FindMaxPower(row + currentPower, col); //Down
+            FindMaxPower(row, col - currentPower, currentPower); //Left
+            FindMaxPower(row - currentPower, col, currentPower); //Up
+            FindMaxPower(row, col + currentPower, currentPower); //Right
+            FindMaxPower(row + currentPower, col, currentPower); //Down
             //Mark the cell as unvisited
-            //lab[row, col] = powerStack.Pop();
-            lab[row, col] = currentPower;
-            if (lab[row, col] != 11)
-            {
-                accumulatedPower -= currentPower;
-            }
+            lab[row, col] = powerStack.Pop();
+            accumulatedPower -= previousPower;
         }
 
         public static bool InRange(int row, int col)
