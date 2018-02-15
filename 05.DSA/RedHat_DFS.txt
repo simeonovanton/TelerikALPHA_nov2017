@@ -1,0 +1,31 @@
+int GetMaxPathDfs()
+{
+    var leaf = this.FindLeaf();
+
+    var tempBest = this.GetBestFrom(leaf, this.weights[leaf], -1);
+
+    var best = this.GetBestFrom(tempBest.Node, this.weights[tempBest.Node], -1);
+
+    return best.Path;
+}
+
+Result GetBestFrom(int node, int currentPath, int parent)
+{
+    var best = new Result(node, currentPath);
+
+    this.nodes[node]
+        .Where((next) => next != parent)
+        .ToList()
+        .ForEach((next) =>
+        {
+            var current = this.GetBestFrom(next, currentPath + this.weights[next], node);
+
+            if (current.Path > best.Path)
+            {
+                best.Path = current.Path;
+                best.Node = current.Node;
+            }
+        });
+
+    return best;
+}
