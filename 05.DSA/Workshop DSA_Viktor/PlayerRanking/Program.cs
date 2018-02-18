@@ -13,10 +13,13 @@ namespace ConsoleApp7
             Dictionary<string, OrderedSet<Player>> playersByType = new Dictionary<string, OrderedSet<Player>>();
             StringBuilder resultBuilder = new StringBuilder();
 
+            int n = int.Parse(Console.ReadLine());
             string command;
-            while ((command = Console.ReadLine()) != "end")
+            for (int i = 0; i < n; i++)
             {
+                command = Console.ReadLine();
                 string[] commandParams = command.Split();
+                string[] restParams = commandParams[1].Split(new char[] { ';' });
                 switch (commandParams[0])
                 {
                     case "add":
