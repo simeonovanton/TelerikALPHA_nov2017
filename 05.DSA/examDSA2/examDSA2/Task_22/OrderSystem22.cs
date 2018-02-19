@@ -11,11 +11,15 @@ namespace Task_2
     {
         public static Dictionary<string, OrderedBag<Order>> ordersByConsumer = new Dictionary<string, OrderedBag<Order>>();
         //public static OrderedDictionary<decimal, OrderedBag<Order>> ordersByPrice = new OrderedDictionary<decimal, OrderedBag<Order>>();
-        public static Bag<Order> ordersByPrice = new Bag<Order>();
+        public static HashSet<Order> ordersByPrice = new HashSet<Order>();
         public static StringBuilder resultBuilder = new StringBuilder();
 
         static void Main()
         {
+            try
+            {
+
+           
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
@@ -43,6 +47,14 @@ namespace Task_2
 
             Console.WriteLine(resultBuilder.ToString());
         }
+             
+            catch (Exception x)
+            {
+
+                Console.WriteLine(x.Message);
+            }
+
+}
 
         private static void AddOrder(string[] restParams)
         {
@@ -67,8 +79,8 @@ namespace Task_2
             {
                 int numOfOrders = ordersByConsumer[consumer].Count;
                 ordersByConsumer.Remove(consumer);
-                //ordersByPrice.RemoveWhere(x => x.Consumer == consumer);
-                ordersByPrice.RemoveAll(x => x.Consumer == consumer);
+                ordersByPrice.RemoveWhere(x => x.Consumer == consumer);
+                //ordersByPrice.RemoveAll(x => x.Consumer == consumer);
                 resultBuilder.AppendLine(string.Format("{0} orders deleted", numOfOrders));
             }
             else
@@ -83,7 +95,7 @@ namespace Task_2
             int end = int.Parse(restParams[1]);
             var output = ordersByPrice
                 .Where(order => order.Price >= start && order.Price <= end)
-                .OrderBy(order => order)
+                .OrderBy(order => order.Name)
                 .Select(order => order)
                 .ToList();
             if (output.Count != 0)
@@ -146,6 +158,14 @@ namespace Task_2
         public int CompareTo(Order other)
         {
             int result = this.Name.CompareTo(other.Name);
+            if (result == 0)
+            {
+                result = this.Price.CompareTo(other.Price);
+                if (result == 0)
+                {
+                    result = this.Consumer.CompareTo(other.Consumer);
+                }
+            }
             return result;
         }
 
