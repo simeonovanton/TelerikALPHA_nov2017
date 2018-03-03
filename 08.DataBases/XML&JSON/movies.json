@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Lord of the Rings",
+        "genre": "Fantasy",
+        "director": "Peter Jackson",
+        "cast": [
+            "Elijah Wood",
+            "Ian McKellen",
+            "Orlando Bloom"
+        ]
+    },
+    {
+        "name": "The Godfather",
+        "genre": "Drama",
+        "director": "Francis Ford Coppola",
+        "cast": [
+            "Marlon Brando",
+            "Al Pacino",
+            "Robert De Niro"
+        ]
+    },
+    {
+        "name": "Fight Club",
+        "genre": "Drama",
+        "director": "David Fincher",
+        "cast": [
+            "Edward Norton",
+            "Brad Pitt"
+        ]
+    }
+]
