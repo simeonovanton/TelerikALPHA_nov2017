@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1491484",
+    "ThreadId": "660867",
+    "Html": "Hello.<br />\n<br />\nI was having difficulty connecting to the Northwind database.<br />\n<br />\nI always suspect first the db connection string and so it is shown below.  But the accessing vb application (which uses windows authentication) says the Northwind db login failed?  The Northwind DB opens up fine in SSMS.<br />\n<br />\nDim connectionString As String = _<br />\n<pre><code>&quot;Server=serverName\\SQLEXPRESS; &quot; _\n&amp; &quot;Initial Catalog=Northwind; &quot; _\n&amp; &quot;Integrated Security=SSPI; &quot;\n</code></pre>\n\nThank you.<br />\n",
+    "PostedDate": "2017-01-22T18:32:17.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1491490",
+    "ThreadId": "660867",
+    "Html": "Unexpectedly, remarkably, my database copy was spelled &quot;NORTHWND&quot; which did not match the connection string.  So no help needed at this time, perhaps later though.  Thank you for now.<br />\n",
+    "PostedDate": "2017-01-23T00:06:14.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2017-01-23T00:06:20.177-08:00"
+  }
+]

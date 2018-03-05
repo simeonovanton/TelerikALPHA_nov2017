@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1112002",
+    "ThreadId": "463540",
+    "Html": "All suggested methods were tried.<br />\n<ol>\n<li>Northwind.bak.zip works and it takes only 3 steps.</li>\n<li>The SQLCMD does not seem to work, the switch -S is flagged as erroneous</li>\n<li>Running the script has problems but there is a work around.\r<br />\nProblem 1: Encoding comes up with auto-detect as default, and the text has some formatting problem\r<br />\nProblem 2; If you choose wesern European codepage 1252 has the same problem\r<br />\nwork around: Copy the text in the download file and paste it to Notepad and then open the file from Notepad in SSMS and run the script.</li>\n</ol>\n",
+    "PostedDate": "2013-10-25T02:13:43.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

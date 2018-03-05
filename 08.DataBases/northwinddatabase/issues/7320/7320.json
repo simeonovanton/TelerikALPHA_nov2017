@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nI am having problems with getting started with the Northwind database. I am using SQL Server 2008 to connect to the database, however, I am unable to login as the \"Server name\" is incorrect. Can someone please tell me how do I set that up? Do I need to setup a server? I have attached error message screenshots for your attention.\n\nI have very little understanding of servers and stuff, so any help will be greatly appreciated.\n\nThanks",
+    "LastUpdatedDate": "2013-02-21T17:15:48.73-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "northwinddatabase",
+    "ReportedDate": "2013-02-16T10:13:45.993-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Server name\" for Northwind db",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7320
+  },
+  "FileAttachments": [
+    {
+      "FileId": 2448,
+      "FileName": "screenshots.docx",
+      "DownloadUrl": ".\\2448"
+    }
+  ],
+  "Comments": []
+}
