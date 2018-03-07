@@ -1,0 +1,76 @@
+6.
+SELECT e.FirstName+'.'+e.LastName+'@telerik.com' AS [Full Email Adresses]
+FROM Employees e
+7.
+SELECT DISTINCT e.Salary
+FROM Employees e
+8.
+USE TelerikAcademy
+SELECT *
+FROM Employees e
+WHERE e.JobTitle='Sales Representative'
+9.
+SELECT *
+FROM Employees e
+WHERE e.FirstName like 'SA%'
+10.
+SELECT *
+FROM Employees e
+WHERE e.LastName like '%ei%
+11.
+SELECT *
+FROM Employees e
+WHERE e.Salary BETWEEN 20000 and 30000
+12.
+SELECT *
+FROM Employees e
+WHERE e.Salary in (25000, 14000, 12500, 23600)
+13.
+SELECT *
+FROM Employees e
+WHERE e.ManagerID IS NULL
+14.
+SELECT *
+FROM Employees e
+WHERE salary > 50000
+ORDER BY e.Salary DESC
+15.
+SELECT TOP 5 *
+FROM Employees e
+ORDER BY e.Salary DESC
+16.
+SELECT e.EmployeeID, e.FirstName, e.LastName, a.AddressText
+FROM Employees e
+INNER JOIN Addresses a
+ON e.EmployeeID=a.AddressID
+17.
+SELECT e.EmployeeID, e.FirstName, e.LastName, a.AddressText
+FROM Employees e, Addresses a
+WHERE e.AddressID = a.AddressID
+18.
+SELECT e.EmployeeID, e.FirstName, e.LastName, e.ManagerID
+FROM Employees e
+19.
+SELECT e.EmployeeID, e.FirstName, e.LastName, e.ManagerID, e.AddressID, a.AddressID, a.AddressText
+FROM Employees e, Addresses a
+WHERE e.AddressID = a.AddressID
+20.
+SELECT Name AS [Town/Department]
+FROM Departments 
+	UNION 
+SELECT Name AS [Town/Department]
+FROM Town
+21.
+SELECT DISTINCT e.EmployeeID, e.FirstName + ' ' + e.LastName AS [Full Name], m.ManagerID, m.FirstName + ' ' + m.LastName AS Manager
+FROM Employees e
+LEFT OUTER JOIN Employees m
+ON e.ManagerID = m.EmployeeID	
+22.
+SELECT e.FirstName + ' ' +  e.LastName AS EmployeeName, d.Name AS Department, e.HireDate
+FROM Employees e
+INNER JOIN Departments d
+ON e.DepartmentID = d.DepartmentID
+WHERE d.Name IN ('Sales', 'Finance')
+    AND e.HireDate
+        BETWEEN Convert(varchar, '01/01/1995', 111) AND Convert(varchar, '12/31/2005', 111)
+
