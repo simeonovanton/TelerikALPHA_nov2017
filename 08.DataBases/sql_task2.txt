@@ -30,3 +30,22 @@ FROM Employees emp JOIN
 	GROUP BY dp.DepartmentID, dp.Name) AS dpMinSalary
 	ON emp.DepartmentID = dpMinSalary.DepartmentID
 WHERE emp.Salary = dpMinSalary.MinSalary
+4.
+SELECT DepartmentID, AVG(e.Salary)
+FROM Employees e
+GROUP BY e.DepartmentID
+HAVING e.DepartmentID = 1
+5.
+  SELECT DepartmentId, AVG(Salary)
+  FROM Employees e
+  GROUP BY e.DepartmentID
+  HAVING e.DepartmentID = (
+  SELECT DISTINCT d.DepartmentID
+  FROM Employees e
+  INNER JOIN  Departments d
+  ON d.DepartmentID = e.DepartmentID
+  WHERE D.Name = 'Sales')
+6.
+ SELECT COUNT(e.EmployeeID) AS [Number of employees]
+ FROM Employees e, Departments d
+WHERE e.DepartmentID = D.DepartmentID AND D.Name = 'Sales'
