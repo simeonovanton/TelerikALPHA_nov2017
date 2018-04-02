@@ -14,6 +14,8 @@ namespace SocialNetwork.Client
             var ctx = new SocialNetworkContext();
 
             ctx.Database.CreateIfNotExists();
+
+            
         }
     }
 }

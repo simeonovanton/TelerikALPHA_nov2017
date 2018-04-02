@@ -49,3 +49,14 @@ HAVING e.DepartmentID = 1
  SELECT COUNT(e.EmployeeID) AS [Number of employees]
  FROM Employees e, Departments d
 WHERE e.DepartmentID = D.DepartmentID AND D.Name = 'Sales'
+7.
+SELECT count(e.EmployeeID) AS [Num of Employees]
+FROM Employees e
+WHERE e.ManagerID IS NOT NULL
+8.
+SELECT count(e.EmployeeID) AS [Num of Employees]
+FROM Employees e
+WHERE e.ManagerID IS NULL
+9.
+
+
