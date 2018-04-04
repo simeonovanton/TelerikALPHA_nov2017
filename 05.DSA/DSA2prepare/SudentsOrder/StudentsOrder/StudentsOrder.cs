@@ -29,22 +29,18 @@ namespace StudentsOrder
         
             string[] names = Console.ReadLine().Split().ToArray();
 
-            Dictionary<string, Node<string>> dict = new Dictionary<string, Node<string>>(); 
-
+            Dictionary<string, Node<string>> dict = new Dictionary<string, Node<string>>();
+            Node<string> oldNode; 
             for (int i = 0; i < studentsNum; i++)
             {
                 Node<string> node = new Node<string>(names[i], null, null);
 
-                if (i == 0)
-                {
-                    node.Previous = null;
-                }
-                if (i == studentsNum - 1)
-                {
-                    node.Next = null;
-                }
+                //if (oldNode != null)
+                //{
+
+                //}
                 dict.Add(names[i], node);
-                var oldNode = node;
+                oldNode = node;
             }
 
             for (int i = 0; i < shiftingNum; i++)
