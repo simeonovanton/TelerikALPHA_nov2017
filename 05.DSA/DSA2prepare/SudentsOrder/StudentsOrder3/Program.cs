@@ -61,7 +61,7 @@ namespace StudentsOrder
                 }
                 else
                 {
-                        nodeToBeFirst.Previous.Next = null;
+                    nodeToBeFirst.Previous.Next = null;
                 }
 
                 //Including nodeToBeFirst in the new position
@@ -78,17 +78,14 @@ namespace StudentsOrder
                 nodeToBeSecond.Previous = nodeToBeFirst;
             }
 
-            var first = dict.Where(x => x.Value.Previous == null).FirstOrDefault();
-            Node firstNode = first.Value;
-            var list = new List<string>();
+            var firstNode = dict.Where(x => x.Value.Previous == null).FirstOrDefault().Value;
             while (firstNode.Next != null)
             {
-                list.Add(firstNode.Value);
+                Console.Write($"{firstNode.Value} ");
                 firstNode = firstNode.Next;
             }
-            list.Add(firstNode.Value);
-
-            Console.WriteLine(string.Join(" ", list));
+            Console.Write($"{firstNode.Value}");
+            Console.WriteLine();
         }
     }
 }
