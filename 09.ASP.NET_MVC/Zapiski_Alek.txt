@@ -1,0 +1,293 @@
+ASP.NET CORE
+
+.NET Framework
+- does not work on all platforms, you need to pay for windows license, higher cost - windows licences, windows requires more ram memory
+- much slower
+
+.NET CORE
+- Open-Source - lots of people contribute, you can see the implementation - very useful if you work on core extension
+- up to x25 faster
+- more modularity, you can use only system.web, does not load everything
+- UWP - Windows 10 applications are written on it
+
+XAMARIN
+- Semi-open source
+- Cross-platform - logic can be reused on Android, iOS, Mac
+- Uses Mono - open source .NET, supported by Microsoft
+
+We can use EF6 + .NET CORE + Xamarin => we can share service layer logic in .NET Standard
+
+1. What does the .NET Platform consist of?
+- .NET Framework - closed-source, slow, runs only on windows!, no modularity - we need to load the whole framework in our memory, we can't use just System.Web(much slower)
+- .NET CORE - open-source, much faster, cross-platform, modular - we can use just System.Web
+- Mono - opern-source version of .NET Framework, Microsoft sponsored
+
+2. What is WUP?
+- Windows 10- both mobile and desktop versions run on it
+- Windows store
+- Xbox
+
+3. What is Xamarin?
+- Mobile application development
+
+4. What is the purpose of .NET Standard?
+- you have a library, which has Interfaces about DateTime and etc
+and we can choose to what we can compile this library - 
+
+5. Why is cross-platform capability such an important thing?
+- mono platform - Windows is more expensive - we need to pay for licenses
+sometimes we need to store something on 2 PC, so we need to pay for 2 Windows licences
+- LINUX is free
+
+ASP.NET CORE
+- Server-side web application - runs on a server machine somewhere, and clients send request towards it and request data
+- designed to build dynamic web pages or applications
+- dynamic - user changes the data dynamically, can do CRUD operations(comments, blogposts, sign for a course)
+- ASP .NET CORE gives us the opportunity to use to easily build dynamic web applications 
+- it is build ot top of .NET CORE, it uses CLR
+
+!- it is open-source, community-focused and cross-platform
+!- build in dependency injection container
+!- it can build both web UIs(Controllers that return HTML) and web APIs(Controllers that return Json)
+with the help of ASP.NET CORE we can build an app that return both an HTML and Json data about the weather in Sofia
+!- it easily integrates with modern, client-side frameworks - Angular, React, ViewJS
+!- provides tooling that simplifies modern web development
+!- super lightweight, high-performance and modular request pipeline
+!- Ability to host on IIS, Apache, Docker, self-host
+
+Web Assembly Technology - allows us to use C++, C# in the client side, so we can manipulate the DOM tree
+
+- Starting point - Program.cs - определяме уеб сървър, каква конфигурация използваме - StartUp
+вътре е описано как трябва да рънва application-a, кога трябва да хвърля грешки и тн.
+.Run - runs Kestrel
+- Composition route - StartUp.cs we have the composition route - configurations
+!- ConfigureServices - описва ме си всички dependency-та в него
+!- Configure - Описва начинът, по който нашият application, ще работи - с някакви middlewares
+- в стария ASP.NET има само един AppStart(), който се вика от IIS, там startingPoint и compositionRoute са ни едно нещо
+- Core дава възможността на модулярност, може да подадем друг StartUp 
+
+Middlewares
+- формират един Pipeline - поток от компоненти, които handle-ват някакъв request или response
+- всеки request стига до middleware-a, ако Middleware-a, не може да върне response, го праща към следващия Middleware
+след като някой Middleware върне response той се връща назад и минава през всеки минал Middleware,
+който може да види response-a и да добави данни, логика
+- връща данни до Kestrel server-a
+
+500 Error - error when the web server throws an exception(internal server error) - грешка в кода, която стига до web server-a
+
+- ASP.NET Core MVC - генерира response под формата на HTML, модели се bind-ват към този HTML
+- ASP.NET Core Web API - Controller-a взима данни от някакъв Service и генерира някакъв response под формата на Json
+нямаме View-та, нямаме и Models
+- ASP.NET Core SignalR - позволява отворена двупосочна комуникация(server-a може да прати request към клиента) - Messenger
+
+ASP.NET Core MVC - a lightweight, open-source, highly testable Presentation framework
+
+dotnet CLI - command line interface, той се рънва отдолу на нашата програма
+- Why should we use dotnet CLI? 
+- ако нямаме инсталирано Visual Studio
+- ако искаш нещо да тестваш на сървъра
+	
+1. What is a web server?
+- нещо, което минава през HTTP, занимава се с web resources
+- приема requests И връща responses, обработва request-ите
+	
+2. What does wacth mode do?
+- следи за промени по файловете
+- когато си промениш някакъв controller - спира сървъра, прекомпилира кода и рънва отново сървъра	
+Kestrel - faster, lightweight, cross-platform, easy to use, can handle upto 3500 client per nanosecond 	
+
+3. Защо имаме reverse proxy(IIS, Apache, Nginx)?
+- Kestrel е елементарен сървър само с един порт, на който отговаря
+- има повече фунционалности от Kestrel, като Middleware е,
+- прави допълнително филтриране на requests
+- в повечето случаи се ползва за domain controller - pesho.com -> викни ми даден процес
+- Reverse proxy - предоставя domain routing, може да работи с много сървъри
+
+A scenario that requires a reverse proxy is when you have multiple applications that share the same IP and port 
+running on a single server. That doesn't work with Kestrel directly because
+Kestrel doesn't support sharing the same IP and port between multiple processes. 
+When you configure Kestrel to listen on a port, it handles all traffic for that port regardless of host header. 
+A reverse proxy that can share ports must then forward to Kestrel on a unique IP and port.
+
+---
+ASP.NET Core MVC
+
+- MVC Pattern - it separates the application into 3 different groups of components
+- Model - holds the data need for the view, they can have state and validation
+- View - Gets the data from the model and displays it to the user
+- Controllers - manages the View logic - like Commands in a ConsoleApp - receive data from the outside world(client)
+and uses Services to return a View(string, file, Json, Xml, image) with the requested result 
+
+- MVC Architecture - easily maintainble, testing
+With the help of it we separate business from presentation logic, so the business logic can be reused
+- we can use services for both MVC presentation and WEB Api - loading data(Judge loads data from my.telerikacademy)
+- една и съща логика се презентира на user-a, хем я expose-ваме за developers, so they can reused it somewhere else
+- Web API does not need to be perfect
+
+Model - state of the application
+- they play the role of a DTO between the Controller and the View(or the user)
+
+View - we get data state either from a user input or from the database and present it as an interface - HTML
+- they use the Razor view engine
+
+Models must not have any logic other than validations and attributes
+Views can have minimal logic, but they should have only presentation logic(no dbContext or automapping stuff)
+we can receive a loop of objects and iterate through it and display it to the user
+
+Controller - is an initial entry point and has some advanced logic about the presentation
+- it gets some data from the user and uses services, repositories so it can generate some output(no dbContext! and mapping)
+
+MVC Default Routing - $"/{Controller(Home)}/{Action(About)}";
+
+A single request is handled by 
+Request => ASP.NET Core => Middlewares => Controller => Service Layer => Data Layer => 
+=> Service Layer => Controller => Model => View => Middleware pipeline => ASP.NET Core => Response
+
+Controllers calls a Service from the service layer(Business logic), 
+the service can communicate with a DB(data layer), another application(Web Api) or with the file system
+After getting the data the controller create a Model and that model is passed to a View
+and the view inserts data in an HTML, which is returned to the Middleware pipeline
+
+DTO is used for the communication between Service layer and the Controller
+- this allows us to have one universal logic, so the DTO can be used by two clients(user and Web API)
+- a DTO is mapped in the Controller
+
+1. What is the MVC Pattern?
+- a specific structure of our application logic, that helps us make our application, extensinble, testable and maintainble 
+
+2. What is the Model responsible for?
+- it usually represents the current state of the request(a user registrates and sends data! to the model)
+
+3. What is the View responsible for?
+- it usually is an HTML that presents the state of the Model(gets the date from the model and show it to the user)
+- it can iterate through an array but not more complex logic
+- validations need to be written in Views with the help of Data Annotations
+- validations need to be written on both Server and Client side
+
+4. What is the Controller responsible for?
+- the connection between the user and the business logic, gets the request, calls a service, gives data to Views (like commands in a consoleApp)
+
+5. Where should we place our business logic?
+- in a service layer
+
+Controllers - group of methods(called Actions), they usually return IActionResult and are mapped to a specific Route
+- handler that process a route(a request)
+- logically group similar actions together => UserController has Register, Login, ForgottenPassword end etc actions
+- in it we can have some authorization, caching
+- it is part of the presentation logic - UI level abstraction, gets some data(from the user), 
+calls the service layer, generates a model and returns IActionResult
+
+- Controller actions(public methods) return IActionResult - this can be a View, Json, NotFound(), BadRequest(), string
+and that IActionResult generates a response to the user
+
+- Actions should contain logic for mapping the data that we receive to some business logic
+$"/{Controller(Home)}/{Action(About)}/{Id}}";
+$"/{Controller(Home)}/{Action(About)?data=35}";
+
+- Actions can return either an empty response body or a non-empty response body
+- an Empty response body - 2 types:
+* HTTP Status codes - NotFound(), BadRequest(), Ok() - 400 status code family
+* Redirects - Redirect(), LocalRedirect(), RedirectToAction(), RedirectToRoute() - 300 status code family
+ex. used to redirect the user to another website because the requested's site address is non-valid 
+- a Non-Empty response can return: View, Json, AJAX, File, Virtual File, String, Image and etc.
+
+- ViewData is a dictionary that holds Key and Value
+ViewData["Title"] = "Home Page";
+- View is the dynamically generated view for every page
+- Layout is a static content that is the same for every page - header, nav bar, footer
+we use ViewData for communication between View and Layout
+
+1. What are Controllers?
+- they get data and send it to a View
+
+2. What conventions must Controllers follow?
+- it needs to inherit from Controller 
+- must be named SomeTextController
+- needs to be public 
+- needs to be placed in Controllers folder
+
+3. What are Actions?
+- public methods in a Controller
+- routing becomes => $"/Home/About"; route-a хваща, че в Controller "Home" има Action "About"
+
+4. What helper methods result in Empty body responses?
+- BadRequest(), NotFound(), Redirect() and etc.
+
+5. How many ways of passing data to the view do you know?
+- with the help with ViewData dictionary
+- we can pass a model to the View and the view will Bind to it
+
+Routing - Middleware attached to MVC that maps the URL(route) to a handler(File(css, js) or Action)
+
+1. What is a Middleware?
+- Pipeline that handles a user request, it can pass it to the next Middleware if the current one can not respond
+- it goes up the pipeline when it gets a response, and then all next Midllewares can also edit the data
+
+2. What is the purpose of Routing?
+- it gets a Route(URL) and passes it to a handler(something that can process it) - Static File, Action
+- MvcDefaultRouting() - $"/{Controller(Home)}/{Action(About)}/{Id}}";
+
+3. Can I directly map to a file on the file system?
+- Yes! - UseStaticFiles() Middleware
+
+4. Does the order of my routes matter?
+- Yes, it does because we process the first route that is matched
+- so we put the Default route at the end of the pipeline
+
+5. Can I use a combination of attributes and convention routing?
+- it depends, we can combine them with [HttpGet] and [HttpPost] attributes
+- it is not a good idea to combine them with the [Route("SomeText")] attribute
+
+6. What are the best practices when it comes to route templates?
+- to be readable, so the default routing is a good practice $"/{Controller(Home)}/{Action(About)}/{Id}}";
+
+7. Can we constrain an action only to a given HTTP verb?
+- Yes, we can - through the [HttpGet] and [HttpPost] attributes
+ex.  $"/Home/Register/"; we use [HttpGet] Register Action to get the call the Register View 
+and [HttpPost] to submit the registration form but we have the same routing for both - $"/Home/Register/"
+
+Views - HTTP templates with Razor markup embedded in them
+- Razor markup(View Engine) - enables C# code in the HTML, 
+and tag helpers(help us dynamically generate properties for an HTML element)
+* we use Razor in .cshtml which are store in the Views folder
+* Razor syntax - we use "@" before a code statement
+* we can use code blocks, if we do not want to include that code in the HTML => @{} 
+
+- Tag Helpers
+* we use tag helpers, so we can reuse code
+* we use tag helpers instead of a href - because the route can change and our app will crash,
+but if we use a tag helper we call the action, not the route
+
+<a asp-controller="Speaker" asp-action="Evaluations">Speaker Evaluations</a>
+is converted to
+<a href="/Speaker/Evaluations/">Speaker Evaluations</a>
+
+Layouts - contain static webpage data - header, nav-bar, footer
+- depending on what environment are we set on(Development or Production) - 
+loads libaries locally when in Development and from CDN when in Production 
+
+1. What is a View?
+- it gets a state from the Controller and displays it to the client through an HTML
+
+2. What is Razor?
+- it is a ViewEngine that gets an HTML, inserts some C# in it, after the View is compiled - it produces an HTML
+
+3. What are Tag Helpers?
+- new version of HTML attributes - asp-controller, asp-action - with the help of them we generate an URL
+for a form, link(a href) and etc. so if the routing changes, this will be automatically changed
+
+4. What is the difference between an HTML Helpers and Tag Helpers?
+- HTML Helpers are written as C# Methods that are called and return some value
+- Tag Helpers are more intuitive for Front-End developers
+
+5. What are Layouts?
+- containt static page data - header, nav-bar, footer
+- something like a View, they combine other Views
+- we usually link our css, js files, metadata
+
+6. What are Partial Views?
+- Views that do not have their own Routing or a Controller
+- they are called by other Views for reusability purpose(LogIn button)
+
+7. What are Areas?
+- we separate an Area in our App which has its own MVC folders, ex. Administration 	

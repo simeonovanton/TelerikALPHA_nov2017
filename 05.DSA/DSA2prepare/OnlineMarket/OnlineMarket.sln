@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMarket", "OnlineMarket\OnlineMarket.csproj", "{A31B9FDF-2068-4476-BA43-B5D4F1CEA546}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMarket2", "OnlineMarket2\OnlineMarket2.csproj", "{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A31B9FDF-2068-4476-BA43-B5D4F1CEA546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A31B9FDF-2068-4476-BA43-B5D4F1CEA546}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A31B9FDF-2068-4476-BA43-B5D4F1CEA546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A31B9FDF-2068-4476-BA43-B5D4F1CEA546}</ProjectGuid>
+    <ProjectGuid>{97070D4F-5FB0-484B-A7F7-7B60C7F98DFA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>OnlineMarket</RootNamespace>
-    <AssemblyName>OnlineMarket</AssemblyName>
+    <RootNamespace>OnlineMarket2</RootNamespace>
+    <AssemblyName>OnlineMarket2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

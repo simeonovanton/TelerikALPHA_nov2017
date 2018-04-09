@@ -1,0 +1,2 @@
+Asp.Net in PluralSight - from AlekHristov
+https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals
