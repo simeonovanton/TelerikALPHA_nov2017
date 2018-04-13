@@ -1,2 +1,17 @@
 Asp.Net in PluralSight - from AlekHristov
 https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals
+
+Ot Lyubo;
+https://www.gitbook.com/book/nbarbettini/little-asp-net-core-book
+
+TWITTER:
+REST API TWITTER
+or
+https://github.com/JoeMayo/LinqToTwitter
+
+JSON RESULT FAKE TEST 
+https://jsonplaceholder.typicode.com/
+
+POSTMAN:
+https://www.getpostman.com/
+

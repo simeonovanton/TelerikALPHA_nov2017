@@ -1,0 +1,22 @@
+﻿@model BlogSystem.Web.Models.HomeViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>About us</h2>
+<div class="row">
+    <div class="col-md-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent venenatis dolor vel tempus dictum. Integer viverra faucibus imperdiet. Donec vitae convallis urna, a tincidunt leo. Curabitur faucibus sagittis velit sit amet feugiat. Vivamus volutpat dui gravida semper blandit. Aliquam ullamcorper suscipit ante, a gravida mauris fringilla ac. Donec enim arcu, eleifend a eleifend at, pharetra at sapien. Aliquam tristique aliquam erat vel lacinia.
+    </div>
+    <div class="col-md-4">
+        Proin est ligula, fringilla eu tempor sed, tincidunt non est. Integer auctor accumsan cursus. Vivamus lacinia diam et mauris molestie consequat. Aenean pharetra fringilla ex a aliquam. Nam elementum eleifend justo, vitae fermentum risus sodales id. Proin porttitor elit malesuada, rhoncus lorem vel, gravida ex. Morbi et suscipit erat. Sed lacinia vulputate risus, eu rutrum mauris. Nunc placerat dolor sit amet quam tincidunt, vel commodo eros vulputate.
+    </div>
+    <div class="col-md-4">
+        Curabitur posuere ante vel nibh congue, quis suscipit erat hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed in velit id erat porta bibendum id ut augue. Sed condimentum maximus quam, tincidunt commodo ligula ultricies a.
+    </div>
+</div>
+
+<hr />
+
+@Html.Partial("_PostGridPartial", Model.Posts)

@@ -1,0 +1,147 @@
+ASP.NET Core Data
+
+ViewModel - a connection between Controller and View(transfers data between them)
+- we can add validation attributes in it
+- attributes allow us to reuse them - we don't have to add validations in the client side as well, we write them just once?
+- separation of concerns - ViewModels present data to the user, while DbMobels store data
+- enables us to avoid logic in the View => ToShortStringDate() should be performed in the ViewModel, and then can be reused
+- loose coupling => we reference only serviceLayer, not the DataLayer, cause we do not use its models
+
+1. Why don't we use DbModels?
+- SRP
+- we can not reuse logic when using DbModels
+
+2. What are the roles of a DbModel and a ViewModel?
+- ViewModel presents data, it can combine data from different DbModels, services
+- DbModel stores data
+
+3. What is a Strongly-Typed View?
+- View that holds a connection to a ViewModel
+- provides Intellisense
+
+Working With Forms - we communicate with the client through them
+- we collect data from users
+- Get requests do not have a body
+- Post requests do have a body - the data in the body can be form-encoded
+
+Model Binding - maps data from HTTP Post Request to Action method parameters
+- the data is passed to model binder, which creates a ViewModel and looks for properties in it that 
+correspond to the Keys(Email, Password) in the data, and then maps their values to the found properties' values
+- so we need to inject a ViewModel in the [HttpPost] Action constructor
+- magic!
+
+1. What is an HTML Form?
+- element that is used to collect user input 
+
+2. Why do we need Forms?
+- To receive data from the user
+
+3. What is the benefit of using ViewModel for user input(instead of string)?
+- validations, reusability
+
+4. What is the alternative to a Tag Helper?
+- HTML Helper
+@Html.TextBoxFor(m => p.Name, 
+   new {@class="form-control has-error", placeholder="Enter Name", 
+   superCoolFeature="Do something cool"})
+   
+Validation - actions applied on the user input
+- Client-side - validaiton before sending to the server, it is related to UX
+- Server-side - validation before storing in the database, a MUST!
+- enables us to avoid potential security threats
+- prevents us from hackers that can try writing SQL queries or scripts
+- RegularExpressions are very useful in attributes
+- we do client side validation through Tag Helper => <span asp-validation-for="UserName"/>
+- we also need to include the validation Script in the View!
+@section Scripts {
+@Html.RenderPartial("_ValidationScriptsPartial"); }
+- Server-side validation is in ModelState dictionary in the Controller Action - or we can exclude it in a Middleware
+
+1. What is the difference between Client and Server-side Validation?
+- Client-side - before sending the data to the server, it is done because ot user experience; it can be turned off
+- Server-side - protects us from entering bad data in the database
+
+2. What is the benefit of using Validation Attributes?
+- work for both Client and Server-side Validation
+- reusability!
+
+3. What are the benefits of Client-side Validation?
+- User experience UX
+
+4. When is Server-side Validation performed?
+- Before invoking the Action
+
+Abstracting Business Logic
+- Views should contain no logic
+
+1. What are Business rules?
+- application logic - the features of the application(Services)
+- we make money of them, not from model-binding or routing
+
+2. How do we implement Business rules in our application?
+- in the Service Layer
+
+---
+
+[HttpPost] Form Action should redirect to another page!
+return RedirectToAction(nameof(Details), new {id = newRestaurant.Id});
+[ValidateAntiForgeryToken] - is a must when authenticating users using cookies, and in general when using Post
+it makes sure, that the user returns the token, that we have sent to him
+
+public dbContext(DbContextOptions options)
+	: base(options) {}
+	
+- we better return IQueryable<Model>() in services, when getting big data, more than 1000 elements	
+- use AddScoped for registering services
+- we can add constructor to StartUp and inject IConfiguration, and then use it in registering dbContext
+- we get the connection string from IConfiguration configuration
+- services.AddDbContext<DbContext>(options => options.SqlServer(configuration.GetConnectionString("CS name")));
+- services.AddScoped<IService, Service>();
+- dotnet ef migrations add migName -v, dotnet ef database update -v
+- in every View we declare what Model are we using @model ModelDto.Company
+- we can have different LayoutView depending on the User(anonymous, admin, etc.)
+- ViewStart helps us reuse a Layout in every View, it will be loaded before everything else
+@{Layout = ~/Views/Shared/_Layout.cshtml";}
+- in every View, we need to register a page title, we can also add a Section to the Layout(footer)
+@{ViewBag.Title = "Home Page";}, we can also override, the Layout page with another one
+- ViewImports 
+@addTagHelpers *, Microsoft.AspNetCore.Mvc.TagHelpers
+we can also add @using namespaces to the ImportView, so then we can directly use Types in all Views
+- Pages - great for creating HTML
+- Update a column from a table
+context.Attach(restaurant).State = EntityState.Modified; SaveChanges();
+- PartialViews - used for reusability
+we add _Summary PartialView, which we can use in every other View - @Html.Partial("_Summary", restaurant) and pass it a parameter
+they always rely on a model, 
+- ViewComponents - it is encapsulated, it's like a mini MVC Controller, it can inject its own Services
+we use them inside the application, not with a route
+- OIDC - OpedID Connect
+- Identity provider - Azure, LinkedIn, Facebook
+- Enable SSL - Project/Properties/Debug/Enable SSL
+UseRewriter(new RewriteOptions().AddRedirectToHttpsPermanent()); => Middleware
+- OIDC steps:
+* register application - using Azure is free
+AppRegistrations => new application registration, Name, WEB Api, Sign-in URL
+Click on registered app => ReplyUrls => add /signin-oidc to URL
+* appSettings.json => 
+"AzureAd": {
+	"ClientId": "ApplicationID", - from registered app settings in Azure	
+	"Authority": https://login.microsoftonline.com/{tenantid}" - tenantid = Properties in Azure => DirectoryId
+* add Middleware => app.UseAuthentication();
+* register services => 
+services.AddAuthentication(options => 
+{
+	options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+})
+.AddOpenIdConnect(options => 
+{
+configuration.Bind("AzureAd", options); 
+})
+.AddCookie();
+* use attributes on Controllers =>
+[Authorize], we can add [AllowAnonymous] to an Action if we want
+
+- https is required to use OIDC
+
+[ValidateAntiForgeryToken] on every POST request!

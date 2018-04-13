@@ -1,0 +1,122 @@
+﻿@using BlogSystem.Web.Models.PostViewModels
+@model DetailsViewModel
+
+@{
+    ViewData["Title"] = Model.Post.Title;
+}
+
+<!-- Modal -->
+<div id="delete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+                <p>You are about to delete this post, are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Post" asp-action="Delete" method="post">
+                    <input type="hidden" name="Id" value="@Model.Post.Id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="update" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update details</h4>
+            </div>
+
+            <form asp-controller="Post" asp-action="Update" method="post">
+                <div class="modal-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Post.Title"></label>
+                        <input asp-for="Post.Title" class="form-control" value="@Model.Post.Title" />
+                        <span asp-validation-for="Post.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Post.Content"></label>
+                        <textarea asp-for="Post.Content" class="form-control" rows="10">@Model.Post.Content</textarea>
+                        <span asp-validation-for="Post.Content" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="Id" value="@Model.Post.Id" />
+                    <button type="submit" class="btn btn-info">Update</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>@Model.Post.Title</h2>
+        <h5>By @Model.Post.Author</h5>
+    </div>
+    @if (Model.Post.Author == this.User.Identity.Name)
+    {
+        <div class="col-md-2" style="text-align:right">
+            <button type="button" class="btn btn-info" style="margin-top:45px" data-toggle="modal" data-target="#update">Update</button>
+            <button type="button" class="btn btn-danger" style="margin-top:45px" data-toggle="modal" data-target="#delete">Delete</button>
+        </div>
+    }
+</div>
+
+<hr />
+
+
+<p style="white-space: pre-line">
+    @Model.Post.Content
+</p>
+
+<hr />
+
+<h4>Comments</h4>
+@if (@Model.Comments.Count() == 0)
+{
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <p>There are no comments yet. Care to write one?</p>
+    }
+    else
+    {
+        <p>There are no comments yet. Login to write one.</p>
+    }
+}
+
+<form action="/post/comment/@Model.Post.Id/" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label></label>
+        <textarea name="content" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<br />
+@if (@Model.Comments.Count() != 0)
+{
+    foreach (var comment in Model.Comments)
+    {
+        <div>
+            <h6>Posted by @comment.Author</h6>
+            <p>@comment.Content</p>
+        </div>
+    }
+}
