@@ -1,3 +1,8 @@
+Ot Lyubo:
+https://legacy.gitbook.com/book/nbarbettini/little-asp-net-core-book/details
+https://github.com/nbarbettini/little-aspnetcore-todo
+https://www.recaffeinate.co/book/
+
 Asp.Net in PluralSight - from AlekHristov
 https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals
 
@@ -8,6 +13,7 @@ TWITTER:
 REST API TWITTER
 or
 https://github.com/JoeMayo/LinqToTwitter
+https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
 
 JSON RESULT FAKE TEST 
 https://jsonplaceholder.typicode.com/
